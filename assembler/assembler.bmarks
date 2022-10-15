@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<BrowseTracker_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="asm_functions.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="2840" topLine="35" />
+		<BrowseMarks positions="10390,10483,10554,11074,11130,11349,11356,11433,12659,13772,8206,8235,8801,9299,9374,9472,9544,9862,10288,10337" />
+		<Book_Marks positions="5048,8799,2837,5993,277,3601,5595" />
+	</File>
+	<File name="include\asm.h" open="1" top="0" tabpos="3">
+		<Cursor position="205" topLine="0" />
+		<BrowseMarks positions="175,1896,2731,2870,2913,2916,3060,3122,3160,3316,3346,3376,3431,3683,3870,3926,3975,3788" />
+		<Book_Marks positions="2189" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="372" topLine="0" />
+		<BrowseMarks positions="30,98,365,367,592,607,770,909,926,986,1125,1365,907" />
+		<Book_Marks positions="1268" />
+	</File>
+</BrowseTracker_layout_file>

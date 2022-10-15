@@ -1,0 +1,41 @@
+push 45
+pop rax
+push 0
+pop rbx
+
+jmp :iter
+
+iter:
+push rax
+push rbx
+rsin
+push 50
+add
+push 100
+mul
+
+push 50
+push rax
+push rbx
+rcos
+sub
+
+add
+pop rcx
+
+push 64
+pop [rcx]
+
+push rbx
+push 1
+add
+pop rbx
+
+push rbx
+push 360
+je :end
+jmp :iter
+
+end:
+ram
+hlt

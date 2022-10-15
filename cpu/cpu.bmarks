@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<BrowseTracker_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="..\io\cpu_out.txt" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="0,2008" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="139" topLine="0" />
+		<BrowseMarks positions="2261,2327,2348,2670,3551,3753,3829,4072,6614,6658,1518,1631,1685,1723,1830,1882,1884,2002,2188,2259" />
+		<Book_Marks positions="4307,5757,5752,0" />
+	</File>
+	<File name="cpu.h" open="1" top="0" tabpos="2">
+		<Cursor position="280" topLine="8" />
+		<BrowseMarks positions="3436,3436,3573,570,995,1119,1484,1703,2239,2294,2332,2368,2723,2740,2780,2817,2965,3066,3196" />
+		<Book_Marks positions="" />
+	</File>
+</BrowseTracker_layout_file>

@@ -1,0 +1,90 @@
+in
+pop rax
+in
+pop rbx
+in
+pop rcx
+
+push rax
+push 0
+je :nula
+jmp :twos
+
+nula:
+push rbx
+push 0
+je :nulab
+
+push rcx
+push -1
+mul
+push rbx
+div
+out
+jmp :end
+
+nulab:
+push rcx
+push 0
+je :inf
+
+je :nosol
+
+inf:
+push 70
+push 78
+push 73
+pop [0]
+pop [1]
+pop [2]
+ram
+jmp :end
+
+nosol:
+push 76
+push 79
+push 83
+pop [0]
+pop [1]
+pop [2]
+ram
+jmp :end
+
+twos:
+push rbx
+push rbx
+mul
+push 4
+push rax
+mul
+push rcx
+mul
+sub
+pop rdx
+
+push rbx
+push -1
+mul
+push rdx
+sqrt
+sub
+push 2
+push rax
+mul
+div
+out
+
+push rbx
+push -1
+mul
+push rdx
+sqrt
+add
+push 2
+push rax
+mul
+div
+out
+
+end:
+hlt

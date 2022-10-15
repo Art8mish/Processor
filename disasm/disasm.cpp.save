@@ -1,0 +1,196 @@
+
+#include "disasm.h"
+
+const char *CODE_INPUT_FILE = "../io/asm_output";
+const char *LOG_FILE_NAME   = "../io/disasm_out.txt";
+
+int main()
+{
+    struct DisAsmField field = {};
+
+    int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
+
+    ERROR_CHECK(read_code_err_check, READ_CODE_ERROR);
+
+    //DumpProcessor(&field);
+
+    //dumpcode
+    printf("Code: \n");
+    int *code = field.code_buffer;
+    for(int i = 0; i < field.op_count; i++)
+    {
+        printf(" %d ", *code++);
+    }
+    printf("\n");
+
+    int perform_code_err_check = PerformCode(&field);
+
+    ERROR_CHECK(perform_code_err_check, PERFORM_CODE_ERROR);
+
+    return SUCCESS;
+}
+
+int ReAsmCode(struct CpuField *field)
+{
+    FILE *log_file = fopen(LOG_FILE_NAME, "a");
+
+    int *code = field->code_buffer;
+    int  first_value = 0;
+    int second_value = 0;
+    int        value = 0;
+    int      *pt_val = &value;
+
+    field->pc = 0;
+
+    while(true)
+    {
+        switch(code[field->pc] & 0xFFFF)
+        {
+
+            #define DEF_CMD(name, num, arg, cpu_code, err_check)    \
+                        case name##_CODE : fprintf(log_file, "#name");     \
+                                           if (arg)                        \
+                                           {                               \
+                                               fprintf(log_file, " ");     \
+                                               PrintArg(field, log_file);  \
+                                           }                               \
+                                           break;
+
+            /*
+            case  HLT_CODE : fprintf(log_file, "hlt");
+                             break;
+
+            case PUSH_CODE : fprintf(log_file, "push ");
+                             PrintArg(field, log_file);
+                             break;
+
+            case  POP_CODE : fprintf(log_file, "pop ");
+                             PrintArg(field, log_file);
+                             break;
+
+            case  ADD_CODE : fprintf(log_file, "add");
+                             break;
+
+            case  SUB_CODE : fprintf(log_file, "sub");
+                             break;
+
+            case  MUL_CODE : fprintf(log_file, "mul");
+                             break;
+
+            case  DIV_CODE : fprintf(log_file, "div");
+                             break;
+
+            case  OUT_CODE : fprintf(log_file, "out");
+                             break;
+
+            case DUMP_CODE : fprintf(log_file, "dump");
+                             break;
+
+            case JMP_CODE  : fprintf(log_file, "jmp ");
+                             PrintArg(field, log_file);
+                             break;
+
+            case JB_CODE   : fprintf(log_file, "jb ");
+                             PrintArg(field, log_file);
+                             break;
+
+            */
+            #include "../cmd.h"
+
+            #undef DEF_CMD
+
+            default : printf(" # ReAsmCode(): ERROR: code = %d. \n", code[field->pc] & (int)0xFFFF);
+                      return SYNTAX_ERROR;
+                      break;
+        }
+
+        fprintf("\n");
+        field->pc++;
+    }
+
+    fclose(log_file);
+
+    return SUCCESS;
+}
+
+int ReadCode(const char *code_file_name, struct DisAsmField *field)
+{
+    CPU_ERROR_CHECK(code_file_name == NULL, PTR_NULL);
+    CPU_ERROR_CHECK(         field == NULL, PTR_NULL);
+
+    FILE *input_file = fopen(code_file_name, "r");
+
+    FILE_ERROR_CHECK(input_file == NULL, OPENING_FILE_ERROR, input_file);
+
+    //read header
+    int  header[HEADER_SIZE] = {};
+
+    char signature[SIGNATURE_LENGTH] = {};
+
+    fread(header, sizeof(int), HEADER_SIZE, input_file);
+    int fread_err_check = ferror(input_file);
+
+    FILE_ERROR_CHECK(fread_err_check, FREAD_ERROR, input_file);
+
+    signature[0] = *((char*)header);
+    signature[1] = *((char*)header + 1);
+    signature[2] = '\0';
+
+    FILE_ERROR_CHECK(strcmp(signature, SIGNATURE), WRONG_SIGNATURE_ERROR, input_file);
+
+    int version  = (int)header[1];
+
+    FILE_ERROR_CHECK(version != CPU_VERSION, WRONG_VERSION_ERROR, input_file);
+
+    field->op_count = (int)header[2];
+
+    printf("version - %d, field.op_count = %d\n", version, field->op_count);
+
+    field->code_buffer = (int*) calloc(field->op_count, sizeof(int));
+
+    fread(field->code_buffer, sizeof(int), field->op_count, input_file);
+    fread_err_check = ferror(input_file);
+
+    FILE_ERROR_CHECK(fread_err_check, FREAD_ERROR, input_file);
+
+    fclose(input_file);
+
+    return SUCCESS;
+}
+
+int PrintArg(struct DisAsmField *field, FILE *out_file)
+{
+    ERROR_CHECK(field == NULL, PTR_NULL);
+
+    int cmd = field->code_buffer[field->pc];
+
+    if (cmd & MEMORY_CODE)
+        fprintf(out_file, "[");
+
+    if (cmd & IMMEDIATE_CONST_CODE)
+        fprintf(out_file, "%d", field->code_buffer[++field->pc]);
+
+    if ((cmd & IMMEDIATE_CONST_CODE) && (cmd & REGISTER_CODE))
+         fprintf(out_file, "+");
+
+    if (cmd & REGISTER_CODE)
+    {
+        field->pc++;
+        if (field->code_buffer[field->pc] == 1)
+            fprintf(out_file, "rax");
+        else if (field->code_buffer[field->pc] == 2)
+            fprintf(out_file, "rbx");
+        else if (field->code_buffer[field->pc] == 3)
+            fprintf(out_file, "rcx");
+        else if (field->code_buffer[field->pc] == 4)
+            fprintf(out_file, "rdx");
+        else
+            return WRONG_REG_ERROR;
+
+    }
+
+    if (cmd & MEMORY_CODE)
+        fprintf(out_file, "]");
+
+    return SUCCESS;
+}

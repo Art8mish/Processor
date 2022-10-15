@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>cpu build log</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>15-10-2022 at 19:18.46</u><br />
+Build ended on: <u>15-10-2022 at 19:18.49</u><p />
+<b>-------------- Build: Debug in cpu (compiler: Use it for projects       = MinGW GCC + Strict)---------------</b><br />
+g++.exe  -c C:\CodeBlocksProjects\Processor\cpu\main.cpp -o obj\Debug\cpu\main.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
+In file included from C:\CodeBlocksProjects\Processor\cpu\cpu.h:16:0,<br />
+                 from C:\CodeBlocksProjects\Processor\cpu\main.cpp:2:<br />
+C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp: In function 'int StackDumpFunction(Stack*, const char*, const char*, int, const char*)':<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:147:88: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
+         fprintf(log_file, "    left_stk_canary  = %X (ALIVE)\n", (*stk).left_stk_canary);<br />
+                                                                                        ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:150:87: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
+         fprintf(log_file, "    left_stk_canary  = %X (DEAD)\n", (*stk).left_stk_canary);<br />
+                                                                                       ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:153:90: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
+         fprintf(log_file, "    right_stk_canary  = %X (ALIVE)\n", (*stk).right_stk_canary);<br />
+                                                                                          ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:156:89: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
+         fprintf(log_file, "    right_stk_canary  = %X (DEAD)\n", (*stk).right_stk_canary);<br />
+                                                                                         ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int main()':<br />
+<font color="#ff0000">C:\CodeBlocksProjects\Processor\cpu\main.cpp:33:20: error: 'DTOR' was not declared in this scope</font><br />
+     DTOR(&amp;field.stk);<br />
+                    ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int DumpProcessor(CpuField*)':<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:101:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+     for (int i = 0; i &lt; field-&gt;op_count; i++)<br />
+                                ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:106:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+     for (int i = 0; i &lt; field-&gt;op_count; i++)<br />
+                                ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:112:37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+     for (int i = 0; i &lt; field-&gt;pc * 9; i++)<br />
+                                     ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:115:37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+     for (int i = 0; i &lt; field-&gt;pc * 9; i++)<br />
+                                     ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:122:36: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+     for (int i = 0; i &lt; field-&gt;stk.data_size; i++)<br />
+                                    ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:129:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+     for (int i = 0; i &lt; REGS_AMOUNT; i++)<br />
+                         ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:139:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+     for (int i = 0; i &lt; RAM_SIZE; i++)<br />
+                         ^<br />
+C:\CodeBlocksProjects\Processor\cpu\../cmd.h: In function 'int ExecuteCode(CpuField*)':<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../cmd.h:110:46: warning: conversion to 'Elem_t {aka int}' from 'double' may alter its value [-Wconversion]</font><br />
+     StackPush(&amp;field-&gt;stk,  sqrt(second_value));<br />
+                                              ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp:176:37: note: in definition of macro 'DEF_CMD'<br />
+                                     cpu_code                        \<br />
+                                     ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../cmd.h:134:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+     for (int i = 0; i &lt; RAM_SIZE; i++)<br />
+                         ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp:176:37: note: in definition of macro 'DEF_CMD'<br />
+                                     cpu_code                        \<br />
+                                     ^<br />
+In file included from C:\CodeBlocksProjects\Processor\cpu\main.cpp:2:0:<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int GetArg(CpuField*, int*)':<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:214:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+         CPU_ERROR_CHECK(val &lt; 0 || val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
+                                           ^<br />
+C:\CodeBlocksProjects\Processor\cpu\cpu.h:34:21: note: in definition of macro 'SOFT_ASSERT'<br />
+                 if (condition)                                                    \<br />
+                     ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp:214:9: note: in expansion of macro 'CPU_ERROR_CHECK'<br />
+         CPU_ERROR_CHECK(val &lt; 0 || val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
+         ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:214:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+         CPU_ERROR_CHECK(val &lt; 0 || val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
+                                           ^<br />
+C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
+                 if (cond)                                   \<br />
+                     ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int GetPtrArg(CpuField*, int**)':<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:238:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+                         field-&gt;code_buffer[field-&gt;pc] &gt;= REGS_AMOUNT, SYNTAX_ERROR);<br />
+                                                          ^<br />
+C:\CodeBlocksProjects\Processor\cpu\cpu.h:34:21: note: in definition of macro 'SOFT_ASSERT'<br />
+                 if (condition)                                                    \<br />
+                     ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp:237:9: note: in expansion of macro 'CPU_ERROR_CHECK'<br />
+         CPU_ERROR_CHECK(field-&gt;code_buffer[field-&gt;pc] &lt; 0 ||<br />
+         ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:238:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+                         field-&gt;code_buffer[field-&gt;pc] &gt;= REGS_AMOUNT, SYNTAX_ERROR);<br />
+                                                          ^<br />
+C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
+                 if (cond)                                   \<br />
+                     ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:252:94: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+         CPU_ERROR_CHECK(field-&gt;code_buffer[field-&gt;pc] &lt; 0 || field-&gt;code_buffer[field-&gt;pc] &gt; REGS_AMOUNT, SYNTAX_ERROR);<br />
+                                                                                              ^<br />
+C:\CodeBlocksProjects\Processor\cpu\cpu.h:34:21: note: in definition of macro 'SOFT_ASSERT'<br />
+                 if (condition)                                                    \<br />
+                     ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp:252:9: note: in expansion of macro 'CPU_ERROR_CHECK'<br />
+         CPU_ERROR_CHECK(field-&gt;code_buffer[field-&gt;pc] &lt; 0 || field-&gt;code_buffer[field-&gt;pc] &gt; REGS_AMOUNT, SYNTAX_ERROR);<br />
+         ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:252:94: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+         CPU_ERROR_CHECK(field-&gt;code_buffer[field-&gt;pc] &lt; 0 || field-&gt;code_buffer[field-&gt;pc] &gt; REGS_AMOUNT, SYNTAX_ERROR);<br />
+                                                                                              ^<br />
+C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
+                 if (cond)                                   \<br />
+                     ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:259:47: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+         CPU_ERROR_CHECK(**val &lt; 0 || **val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
+                                               ^<br />
+C:\CodeBlocksProjects\Processor\cpu\cpu.h:34:21: note: in definition of macro 'SOFT_ASSERT'<br />
+                 if (condition)                                                    \<br />
+                     ^<br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp:259:9: note: in expansion of macro 'CPU_ERROR_CHECK'<br />
+         CPU_ERROR_CHECK(**val &lt; 0 || **val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
+         ^<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:259:47: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+         CPU_ERROR_CHECK(**val &lt; 0 || **val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
+                                               ^<br />
+C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
+                 if (cond)                                   \<br />
+                     ^<br />
+<font color="#a00000">Process terminated with status 1 (0 minutes, 3 seconds)</font><br />
+<font color="#a00000">1 errors, 21 warnings (0 minutes, 3 seconds)</font><br />
+</tt>
+</body>
+</html>

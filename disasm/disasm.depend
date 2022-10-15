@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1665580822 source:c:\program files\codeblocks\cbprojects\processor\disasm\disasm.cpp
+	"disasm.h"
+	"../cmd.h"
+
+1665580893 c:\program files\codeblocks\cbprojects\processor\disasm\disasm.h
+	<stdlib.h>
+	<stdio.h>
+	<TXlib.h>
+	"../cmd.h"
+
+1665831184 c:\program files\codeblocks\cbprojects\processor\cmd.h
+
+1665742403 source:c:\program files\codeblocks\cbprojects\processor\disasm\main.cpp
+	"disasm.h"
+	"../cmd.h"
+

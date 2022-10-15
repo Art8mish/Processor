@@ -1,0 +1,69 @@
+push 76
+push 65
+push 73
+push 82
+push 79
+push 84
+push 67
+push 65
+push 70
+pop [51]
+pop [52]
+pop [53]
+pop [54]
+pop [55]
+pop [56]
+pop [57]
+pop [58]
+pop [59]
+ram
+
+start:
+in
+pop rax
+push 1
+pop rbx
+
+push rax
+push 1
+jbe :one
+
+cycle:
+call :iter
+push rbx
+push rax
+push 1
+je :end
+pop rbx
+jmp :cycle
+
+iter:
+push rbx
+push rax
+mul
+pop rbx
+
+push rax
+push 1
+sub
+pop rax
+
+push rbx
+push rax
+push 1
+je :end
+pop rbx
+
+ret
+
+null:
+push 0
+jmp :end
+
+one:
+push 1
+jmp :end
+
+end:
+out
+hlt

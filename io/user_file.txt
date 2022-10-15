@@ -1,0 +1,17 @@
+call :next
+
+push 1
+push 2
+add
+pop rax
+dump
+jmp :end
+
+next:
+push 4
+push 5
+dump
+ret
+
+end:
+hlt

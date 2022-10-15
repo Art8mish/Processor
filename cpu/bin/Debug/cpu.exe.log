@@ -1,0 +1,564 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7643BC10 в функции strcmp(). Попытка прочесть данные по адресу NULL в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x2B00 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7643BC10 in C:\Windows\System32\msvcrt.dll: strcmp()
+
+# 1 0x0042B980 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (10):
+
+      8:     struct CpuField field = {};
+      9: 
+=>   10:     int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
+     11: }
+     12: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  6 2022 16:54:41, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 06 2022 16:54:50
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7643BC10 в функции strcmp(). Попытка прочесть данные по адресу NULL в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x2B00 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7643BC10 in C:\Windows\System32\msvcrt.dll: strcmp()
+
+# 1 0x0042B980 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (10):
+
+      8:     struct CpuField field = {};
+      9: 
+=>   10:     int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
+     11: }
+     12: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  6 2022 16:54:41, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 06 2022 16:54:50
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7643BC10 в функции strcmp(). Попытка прочесть данные по адресу NULL в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x874 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7643BC10 in C:\Windows\System32\msvcrt.dll: strcmp()
+
+# 1 0x0042B980 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (10):
+
+      8:     struct CpuField field = {};
+      9: 
+=>   10:     int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
+     11: }
+     12: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  6 2022 16:55:59, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 06 2022 16:56:08
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7643BC10 в функции strcmp(). Попытка прочесть данные по адресу NULL в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x874 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7643BC10 in C:\Windows\System32\msvcrt.dll: strcmp()
+
+# 1 0x0042B980 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (10):
+
+      8:     struct CpuField field = {};
+      9: 
+=>   10:     int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
+     11: }
+     12: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  6 2022 16:55:59, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 06 2022 16:56:08
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7643BC10 в функции strcmp(). Попытка прочесть данные по адресу NULL в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x3154 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7643BC10 in C:\Windows\System32\msvcrt.dll: strcmp()
+
+# 1 0x0042B980 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (10):
+
+      8:     struct CpuField field = {};
+      9: 
+=>   10:     int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
+     11: }
+     12: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  6 2022 16:56:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 06 2022 16:56:39
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7643BC10 в функции strcmp(). Попытка прочесть данные по адресу NULL в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x3154 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7643BC10 in C:\Windows\System32\msvcrt.dll: strcmp()
+
+# 1 0x0042B980 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (10):
+
+      8:     struct CpuField field = {};
+      9: 
+=>   10:     int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
+     11: }
+     12: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  6 2022 16:56:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 06 2022 16:56:39
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042DF07 в функции GetPtArg() в файле C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp на строке 239. Попытка прочесть данные по адресу 0x007EFD54 в модуле C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x840 (Main), GetLastError(): 183 (Невозможно создать файл, так как он уже существует). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042DF07 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: GetPtArg() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (239):
+
+    237: 
+    238:     if (cmd & REGISTER_CODE)
+=>  239:         **val += field->Regs[field->code_buffer[++field->pc]];
+    240: 
+    241:     if (cmd & MEMORY_CODE)
+
+# 1 0x0042D7CC in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: PerformCode() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (139):
+
+    137:                              break;
+    138: 
+=>  139:             case  POP_CODE : GetPtArg(field, &pt_val);
+    140:                              StackPop (&field->stk, &second_value);
+    141:                              *pt_val = second_value;
+
+# 2 0x0042D10C in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (29):
+
+     27:     printf("\n");*/
+     28: 
+=>   29:     int perform_code_err_check = PerformCode(&field);
+     30: 
+     31:     CPU_ERROR_CHECK(perform_code_err_check, PERFORM_CODE_ERROR);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 10 2022 20:52:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 10 2022 20:52:57
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042DF07 в функции GetPtArg() в файле C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp на строке 239. Попытка прочесть данные по адресу 0x007EFD54 в модуле C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x840 (Main), GetLastError(): 183 (Невозможно создать файл, так как он уже существует). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042DF07 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: GetPtArg() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (239):
+
+    237: 
+    238:     if (cmd & REGISTER_CODE)
+=>  239:         **val += field->Regs[field->code_buffer[++field->pc]];
+    240: 
+    241:     if (cmd & MEMORY_CODE)
+
+# 1 0x0042D7CC in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: PerformCode() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (139):
+
+    137:                              break;
+    138: 
+=>  139:             case  POP_CODE : GetPtArg(field, &pt_val);
+    140:                              StackPop (&field->stk, &second_value);
+    141:                              *pt_val = second_value;
+
+# 2 0x0042D10C in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (29):
+
+     27:     printf("\n");*/
+     28: 
+=>   29:     int perform_code_err_check = PerformCode(&field);
+     30: 
+     31:     CPU_ERROR_CHECK(perform_code_err_check, PERFORM_CODE_ERROR);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 10 2022 20:52:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 10 2022 20:52:57
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042DF07 в функции GetPtArg() в файле C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp на строке 239. Попытка прочесть данные по адресу 0x007EFD54 в модуле C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2F00 (Main), GetLastError(): 183 (Невозможно создать файл, так как он уже существует). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042DF07 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: GetPtArg() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (239):
+
+    237: 
+    238:     if (cmd & REGISTER_CODE && cmd & MEMORY_CODE)
+=>  239:     {
+    240:         field->code_buffer[field->pc++];
+    241: 
+
+# 1 0x0042D7CC in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: PerformCode() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (139):
+
+    137:                              break;
+    138: 
+=>  139:             case  POP_CODE : GetPtArg(field, &pt_val);
+    140:                              StackPop (&field->stk, &second_value);
+    141:                              *pt_val = second_value;
+
+# 2 0x0042D10C in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (29):
+
+     27:     printf("\n");*/
+     28: 
+=>   29:     int perform_code_err_check = PerformCode(&field);
+     30: 
+     31:     CPU_ERROR_CHECK(perform_code_err_check, PERFORM_CODE_ERROR);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 10 2022 20:52:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 10 2022 20:56:39
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042DF07 в функции GetPtArg() в файле C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp на строке 239. Попытка прочесть данные по адресу 0x007EFD54 в модуле C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2F00 (Main), GetLastError(): 183 (Невозможно создать файл, так как он уже существует). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042DF07 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: GetPtArg() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (239):
+
+    237: 
+    238:     if (cmd & REGISTER_CODE && cmd & MEMORY_CODE)
+=>  239:     {
+    240:         field->code_buffer[field->pc++];
+    241: 
+
+# 1 0x0042D7CC in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: PerformCode() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (139):
+
+    137:                              break;
+    138: 
+=>  139:             case  POP_CODE : GetPtArg(field, &pt_val);
+    140:                              StackPop (&field->stk, &second_value);
+    141:                              *pt_val = second_value;
+
+# 2 0x0042D10C in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: main() at C:/Program Files/CodeBlocks/CBProjects/Processor/cpu/main.cpp (29):
+
+     27:     printf("\n");*/
+     28: 
+=>   29:     int perform_code_err_check = PerformCode(&field);
+     30: 
+     31:     CPU_ERROR_CHECK(perform_code_err_check, PERFORM_CODE_ERROR);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 10 2022 20:52:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 10 2022 20:56:39
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00000040. Попытка прочесть данные по адресу 0x00000040. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005082FC (32-bit), Flags: Cmdre0, Thread: 0xF48 (Main), GetLastError(): 183 (Невозможно создать файл, так как он уже существует). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041242A in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: _txOnExceptionSEH() at c:/program files/codeblocks/codeblocks/mingw/include/txlib.h (11470)
+# 1 0x00411BF6 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: _txVectoredExceptionHandler() at c:/program files/codeblocks/codeblocks/mingw/include/txlib.h (11362)
+# 2 0x7759E6F2 in C:\Windows\SYSTEM32\ntdll.dll: RtlIpv4AddressToStringA()
+# 3 0x775993B1 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+# 4 0x775A7176 in C:\Windows\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 15 2022 13:07:58, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 15 2022 13:09:18
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00000040. Попытка прочесть данные по адресу 0x00000040. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005082FC (32-bit), Flags: Cmdre0, Thread: 0xF48 (Main), GetLastError(): 183 (Невозможно создать файл, так как он уже существует). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004112A6 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: _txOnSignal() at c:/program files/codeblocks/codeblocks/mingw/include/txlib.h (10992)
+# 1 0x004010F9 in C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe: _gnu_exception_handler@4()
+# 2 0x754AA9B2 in C:\Windows\System32\KERNELBASE.dll: UnhandledExceptionFilter()
+# 3 0x77599064 in C:\Windows\SYSTEM32\ntdll.dll: RtlGetFullPathName_UEx()
+# 4 0x77598F9D in C:\Windows\SYSTEM32\ntdll.dll: RtlGetFullPathName_UEx()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 15 2022 13:07:58, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 15 2022 13:09:18
+
+Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu\bin\Debug\cpu.exe
+Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\cpu
+
+--------------------------------------------------
