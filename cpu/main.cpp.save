@@ -30,6 +30,9 @@ int main()
 
     CPU_ERROR_CHECK(perform_code_err_check, PERFORM_CODE_ERROR);
 
+    StackDtor(&field.stk);
+    StackDtor(&field.ret_adr);
+
     return SUCCESS;
 }
 
@@ -43,10 +46,11 @@ int ReadCode(const char *code_file_name, struct CpuField *field)
 
     FILE_ERROR_CHECK(input_file == NULL, OPENING_FILE_ERROR, input_file);
 
-    
+    int read_header_err = ReadHeader(input_file, field);
+    FILE_ERROR_CHECK(read_header_err, READ_HEADER_ERROR, input_file);
 
     fread(field->code_buffer, sizeof(int), field->op_count, input_file);
-    fread_err_check = ferror(input_file);
+    int fread_err_check = ferror(input_file);
 
     FILE_ERROR_CHECK(fread_err_check, FREAD_ERROR, input_file);
 
@@ -55,27 +59,33 @@ int ReadCode(const char *code_file_name, struct CpuField *field)
     return SUCCESS;
 }
 
-int ReadHeader(FILE *file, )
+int ReadHeader(FILE *input_file, struct CpuField *field)
 {
+    ASM_ERROR_CHECK(input_file == NULL, PTR_NULL);
+    ASM_ERROR_CHECK(     field == NULL, PTR_NULL);
 
     int  header[HEADER_SIZE] = {};
 
     fread(header, sizeof(int), HEADER_SIZE, input_file);
     int fread_err_check = ferror(input_file);
 
-    FILE_ERROR_CHECK(fread_err_check, FREAD_ERROR, input_file);
+    ASM_ERROR_CHECK(fread_err_check, FREAD_ERROR);
 
-    FILE_ERROR_CHECK(strncmp((char*)header, SIGNATURE, 2), WRONG_SIGNATURE_ERROR, input_file);
+    ASM_ERROR_CHECK(strncmp((char*)header, SIGNATURE, 2), WRONG_SIGNATURE_ERROR);
 
     int version  = header[1];
 
-    FILE_ERROR_CHECK(version != CPU_VERSION, WRONG_VERSION_ERROR, input_file);
+    ASM_ERROR_CHECK(version != CPU_VERSION, WRONG_VERSION_ERROR);
 
     field->op_count = header[2];
 
     //printf("Version: %d; field.op_count = %d\n", version, field->op_count);
 
     field->code_buffer = (int*) calloc(field->op_count, sizeof(int));
+
+    ASM_ERROR_CHECK(field->code_buffer == NULL, CALLOC_ERROR);
+
+    return SUCCESS;
 }
 
 int DumpProcessor(struct CpuField *field)
@@ -203,7 +213,7 @@ int GetArg(struct CpuField *field, int *value)
     {
         CPU_ERROR_CHECK(val < 0 || val >= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);
         val = field->Ram[val];
-        printf("catch_memory_code, value = %d\n", val);
+        //printf("catch_memory_code, value = %d\n", val);
     }
 
     *value = val;
@@ -222,7 +232,7 @@ int GetPtrArg(struct CpuField *field, int **val)
 
     if (cmd & REGISTER_CODE && !(cmd & MEMORY_CODE))
     {
-        field->code_buffer[field->pc++];
+        field->pc++;
 
         CPU_ERROR_CHECK(field->code_buffer[field->pc] < 0 ||
                         field->code_buffer[field->pc] >= REGS_AMOUNT, SYNTAX_ERROR);

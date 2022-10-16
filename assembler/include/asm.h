@@ -82,6 +82,8 @@ enum AsmError
               PROCESS_LABEL_ERROR = 27,
                 READ_HEADER_ERROR = 28,
                  READ_LABEL_ERROR = 29,
+                      ISREG_ERROR = 30,
+        READ_PLUS_CONSTRUCT_ERROR = 31,
 };
 
 #define DEF_CMD(name, num, arg, code, err_check) \
@@ -128,9 +130,11 @@ int CountLines(struct AsmField *field, size_t *value);
 
 int ReadArg(struct AsmField *field, char **buf);
 
-int PrintHeader(struct AsmField *field);
-
+int ReadPlusConstruction(struct AsmField *field, char **buf);
+int IsReg(char *buf, int *arg);
 int ReadLabel(struct AsmField *field, char **buf);
+
+int PrintHeader(struct AsmField *field);
 
 int FindLabelValue(struct AsmField *field, char *label_name, int *arg);
 int ProcessLabel(struct AsmField *field, char *cmd);

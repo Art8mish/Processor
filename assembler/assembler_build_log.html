@@ -4,51 +4,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>15-10-2022 at 19:20.30</u><br />
-Build ended on: <u>15-10-2022 at 19:20.36</u><p />
+Build started on: <u>15-10-2022 at 22:58.45</u><br />
+Build ended on: <u>15-10-2022 at 22:58.51</u><p />
 <b>-------------- Build: Debug in assembler (compiler: Use it for projects       = MinGW GCC + Strict)---------------</b><br />
 g++.exe  -c C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp -o obj\Debug\asm_functions.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
-g++.exe  -c C:\CodeBlocksProjects\Processor\assembler\main.cpp -o obj\Debug\main.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
-C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp: In function 'int AssemblyUserCode(AsmField*)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:85:45: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     while (field-&gt;pc &lt; field-&gt;lines_count * ARG_IN_LINE_AMOUNT)<br />
-                                             ^<br />
-In file included from C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:2:0:<br />
 C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp: In function 'int ProcessLabel(AsmField*, char*)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:162:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-         ASM_ERROR_CHECK(arg &lt; 0 || arg &gt;= LABELS_AMOUNT, SYNTAX_ERROR);<br />
-                                           ^<br />
-C:\CodeBlocksProjects\Processor\assembler\include/asm.h:23:21: note: in definition of macro 'SOFT_ASSERT'<br />
-                 if (condition)                                                 \<br />
-                     ^<br />
-C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:162:9: note: in expansion of macro 'ASM_ERROR_CHECK'<br />
-         ASM_ERROR_CHECK(arg &lt; 0 || arg &gt;= LABELS_AMOUNT, SYNTAX_ERROR);<br />
-         ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:162:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-         ASM_ERROR_CHECK(arg &lt; 0 || arg &gt;= LABELS_AMOUNT, SYNTAX_ERROR);<br />
-                                           ^<br />
-C:\CodeBlocksProjects\Processor\assembler\include/asm.h:39:21: note: in definition of macro 'ASM_ERROR_CHECK'<br />
-                 if (cond)                                   \<br />
-                     ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:173:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:164:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
          for (int i = 0; i &lt;= LABELS_AMOUNT; i++) //find free label<br />
                               ^<br />
 C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp: In function 'int CountLines(AsmField*, size_t*)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:235:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:219:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
      for (int i = 0; i &lt; field-&gt;chars_count; i++)<br />
                                 ^<br />
+C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp: In function 'int ReadArg(AsmField*, char**)':<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:238:10: warning: unused variable 'reg' [-Wunused-variable]</font><br />
+     char reg[MAX_WORD_LEN] = {};<br />
+          ^<br />
 In file included from C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:2:0:<br />
 C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp: In function 'int ReadLabel(AsmField*, char**)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:379:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:387:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
          ASM_ERROR_CHECK(arg &lt; 0 || arg &gt;= LABELS_AMOUNT, SYNTAX_ERROR);<br />
                                            ^<br />
 C:\CodeBlocksProjects\Processor\assembler\include/asm.h:23:21: note: in definition of macro 'SOFT_ASSERT'<br />
                  if (condition)                                                 \<br />
                      ^<br />
-C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:379:9: note: in expansion of macro 'ASM_ERROR_CHECK'<br />
+C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:387:9: note: in expansion of macro 'ASM_ERROR_CHECK'<br />
          ASM_ERROR_CHECK(arg &lt; 0 || arg &gt;= LABELS_AMOUNT, SYNTAX_ERROR);<br />
          ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:379:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\assembler\asm_functions.cpp:387:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
          ASM_ERROR_CHECK(arg &lt; 0 || arg &gt;= LABELS_AMOUNT, SYNTAX_ERROR);<br />
                                            ^<br />
 C:\CodeBlocksProjects\Processor\assembler\include/asm.h:39:21: note: in definition of macro 'ASM_ERROR_CHECK'<br />
@@ -57,7 +40,7 @@ C:\CodeBlocksProjects\Processor\assembler\include/asm.h:39:21: note: in definiti
 g++.exe  -o bin\Debug\assembler.exe obj\Debug\asm_functions.o obj\Debug\main.o<br />
 Output size is 2,79 MB<br />
 <font color="#0000ff">Process terminated with status 0 (0 minutes, 6 seconds)</font><br />
-<font color="#0000ff">0 errors, 7 warnings (0 minutes, 6 seconds)</font><br />
+<font color="#0000ff">0 errors, 5 warnings (0 minutes, 6 seconds)</font><br />
 </tt>
 </body>
 </html>

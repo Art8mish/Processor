@@ -2,8 +2,8 @@
 #include "include/asm.h"
 
 //const char * const       USER_FILE_NAME = "../io/user_file.txt";
-const char * const       USER_FILE_NAME = "../io/krujochek.txt";
-//const char * const       USER_FILE_NAME = "../io/quadratic.txt";
+//const char * const       USER_FILE_NAME = "../io/krujochek.txt";
+const char * const       USER_FILE_NAME = "../io/quadratic.txt";
 //const char * const       USER_FILE_NAME = "../io/factorial.txt";
 
 const char * const OUTPUT_ASM_FILE_NAME = "../io/asm_output";
@@ -40,6 +40,8 @@ int main()
     free(main_field.code_buffer);
 
     printf("\nSUCCEFUL END.");
+
+    getchar();
 
     return SUCCESS;
 }

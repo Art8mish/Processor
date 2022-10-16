@@ -1822,3 +1822,101 @@ Run file:	C:\Program Files\CodeBlocks\CBProjects\Processor\assembler\bin\Debug\a
 Directory:	C:\Program Files\CodeBlocks\CBProjects\Processor\assembler
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042BC99 в функции AssemblyUserCode() в файле C:/CodeBlocksProjects/Processor/assembler/asm_functions.cpp на строке 89. Попытка прочесть данные по адресу 0x28BB502D в модуле C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0057969C (32-bit), Flags: Cmdre0, Thread: 0x3224 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042BC99 in C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe: AssemblyUserCode() at C:/CodeBlocksProjects/Processor/assembler/asm_functions.cpp (89):
+
+     87:         label = false;
+     88: 
+=>   89:         while(isspace(*buf)) { buf++; }
+     90: 
+     91:         sscanf(buf, "%s", cmd);
+
+# 1 0x0045A039 in C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe: main() at C:/CodeBlocksProjects/Processor/assembler/main.cpp (24):
+
+     22: //First Assembly
+     23: 
+=>   24:     int convert_err_check = AssemblyUserCode(&main_field);
+     25:     ASM_ERROR_CHECK(convert_err_check, 2);
+     26: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 15 2022 21:19:15, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 15 2022 21:20:57
+
+Run file:	C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe
+Directory:	C:\CodeBlocksProjects\Processor\assembler
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042BC99 в функции AssemblyUserCode() в файле C:/CodeBlocksProjects/Processor/assembler/asm_functions.cpp на строке 89. Попытка прочесть данные по адресу 0x28BB502D в модуле C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0057969C (32-bit), Flags: Cmdre0, Thread: 0x3224 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042BC99 in C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe: AssemblyUserCode() at C:/CodeBlocksProjects/Processor/assembler/asm_functions.cpp (89):
+
+     87:         label = false;
+     88: 
+=>   89:         while(isspace(*buf)) { buf++; }
+     90: 
+     91:         sscanf(buf, "%s", cmd);
+
+# 1 0x0045A039 in C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe: main() at C:/CodeBlocksProjects/Processor/assembler/main.cpp (24):
+
+     22: //First Assembly
+     23: 
+=>   24:     int convert_err_check = AssemblyUserCode(&main_field);
+     25:     ASM_ERROR_CHECK(convert_err_check, 2);
+     26: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 15 2022 21:19:15, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 15 2022 21:20:57
+
+Run file:	C:\CodeBlocksProjects\Processor\assembler\bin\Debug\assembler.exe
+Directory:	C:\CodeBlocksProjects\Processor\assembler
+
+--------------------------------------------------

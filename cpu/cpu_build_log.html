@@ -4,9 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>15-10-2022 at 19:18.46</u><br />
-Build ended on: <u>15-10-2022 at 19:18.49</u><p />
+Build started on: <u>15-10-2022 at 22:40.43</u><br />
+Build ended on: <u>15-10-2022 at 22:40.50</u><p />
 <b>-------------- Build: Debug in cpu (compiler: Use it for projects       = MinGW GCC + Strict)---------------</b><br />
+g++.exe  -c C:\CodeBlocksProjects\Processor\cpu\cpu_functions.cpp -o obj\Debug\cpu\cpu_functions.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
 g++.exe  -c C:\CodeBlocksProjects\Processor\cpu\main.cpp -o obj\Debug\cpu\main.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
 In file included from C:\CodeBlocksProjects\Processor\cpu\cpu.h:16:0,<br />
                  from C:\CodeBlocksProjects\Processor\cpu\main.cpp:2:<br />
@@ -23,10 +24,6 @@ C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp: In f
 <font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:156:89: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
          fprintf(log_file, "    right_stk_canary  = %X (DEAD)\n", (*stk).right_stk_canary);<br />
                                                                                          ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int main()':<br />
-<font color="#ff0000">C:\CodeBlocksProjects\Processor\cpu\main.cpp:33:20: error: 'DTOR' was not declared in this scope</font><br />
-     DTOR(&amp;field.stk);<br />
-                    ^<br />
 C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int DumpProcessor(CpuField*)':<br />
 <font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:101:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
      for (int i = 0; i &lt; field-&gt;op_count; i++)<br />
@@ -50,12 +47,6 @@ C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int DumpProcessor(Cpu
      for (int i = 0; i &lt; RAM_SIZE; i++)<br />
                          ^<br />
 C:\CodeBlocksProjects\Processor\cpu\../cmd.h: In function 'int ExecuteCode(CpuField*)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../cmd.h:110:46: warning: conversion to 'Elem_t {aka int}' from 'double' may alter its value [-Wconversion]</font><br />
-     StackPush(&amp;field-&gt;stk,  sqrt(second_value));<br />
-                                              ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp:176:37: note: in definition of macro 'DEF_CMD'<br />
-                                     cpu_code                        \<br />
-                                     ^<br />
 <font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../cmd.h:134:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
      for (int i = 0; i &lt; RAM_SIZE; i++)<br />
                          ^<br />
@@ -125,8 +116,14 @@ C:\CodeBlocksProjects\Processor\cpu\main.cpp:259:9: note: in expansion of macro 
 C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
                  if (cond)                                   \<br />
                      ^<br />
-<font color="#a00000">Process terminated with status 1 (0 minutes, 3 seconds)</font><br />
-<font color="#a00000">1 errors, 21 warnings (0 minutes, 3 seconds)</font><br />
+C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int main()':<br />
+<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:37:1: warning: stack usage is 40240 bytes [-Wstack-usage=]</font><br />
+ }<br />
+ ^<br />
+g++.exe  -o bin\Debug\cpu.exe obj\Debug\cpu\cpu_functions.o obj\Debug\cpu\main.o<br />
+Output size is 2,26 MB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 7 seconds)</font><br />
+<font color="#0000ff">0 errors, 21 warnings (0 minutes, 7 seconds)</font><br />
 </tt>
 </body>
 </html>

@@ -31,12 +31,12 @@
 
 1665831184 c:\program files\codeblocks\cbprojects\processor\cmd.h
 
-1665850600 source:c:\codeblocksprojects\processor\assembler\asm_functions.cpp
+1665863145 source:c:\codeblocksprojects\processor\assembler\asm_functions.cpp
 	"include/asm.h"
 	"../cmd.h"
 	"../cmd.h"
 
-1665850420 c:\codeblocksprojects\processor\assembler\include\asm.h
+1665855993 c:\codeblocksprojects\processor\assembler\include\asm.h
 	<stdlib.h>
 	<stdio.h>
 	<TXlib.h>
@@ -46,7 +46,7 @@
 
 1665850738 c:\codeblocksprojects\processor\cmd.h
 
-1665849706 source:c:\codeblocksprojects\processor\assembler\main.cpp
+1665863569 source:c:\codeblocksprojects\processor\assembler\main.cpp
 	"include/asm.h"
 
 1665065772 c:\codeblocksprojects\stack\libraries.h

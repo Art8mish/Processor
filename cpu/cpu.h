@@ -82,14 +82,14 @@ const char * const SIGNATURE         = "DP";
 
 enum CpuError
 {
-        WRONG_SIGNATURE_ERROR = 31,
-          WRONG_VERSION_ERROR = 32,
-              READ_CODE_ERROR = 33,
-    INCORRECT_USER_CODE_ERROR = 34,
-           PERFORM_CODE_ERROR = 35,
-     INCORRECT_RAM_CELL_ERROR = 36,
-       DIVISION_BY_ZERO_ERROR = 37,
-                  EMPTY_ERROR = 39
+        WRONG_SIGNATURE_ERROR = 35,
+          WRONG_VERSION_ERROR = 36,
+              READ_CODE_ERROR = 37,
+    INCORRECT_USER_CODE_ERROR = 38,
+           PERFORM_CODE_ERROR = 39,
+     INCORRECT_RAM_CELL_ERROR = 40,
+       DIVISION_BY_ZERO_ERROR = 41,
+                  EMPTY_ERROR = 42
 };
 
 

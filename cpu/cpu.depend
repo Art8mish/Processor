@@ -59,11 +59,11 @@
 	"C:/Program Files/CodeBlocks/CBProjects/Stack/verification_functions.cpp"
 	"../cmd.h"
 
-1665847572 source:c:\codeblocksprojects\processor\cpu\main.cpp
+1665861776 source:c:\codeblocksprojects\processor\cpu\main.cpp
 	"cpu.h"
 	"../cmd.h"
 
-1665847428 c:\codeblocksprojects\processor\cpu\cpu.h
+1665862843 c:\codeblocksprojects\processor\cpu\cpu.h
 	<stdlib.h>
 	<stdio.h>
 	<math.h>
@@ -75,7 +75,7 @@
 	"../../Stack/verification_functions.cpp"
 	"../assembler/include/asm.h"
 
-1665831184 c:\codeblocksprojects\processor\cmd.h
+1665850738 c:\codeblocksprojects\processor\cmd.h
 
 1665065772 c:\codeblocksprojects\stack\libraries.h
 	<stdio.h>
@@ -97,11 +97,13 @@
 1664920381 c:\codeblocksprojects\stack\verification_functions.cpp
 	"libraries.h"
 
-1665850420 c:\codeblocksprojects\processor\assembler\include\asm.h
+1665855993 c:\codeblocksprojects\processor\assembler\include\asm.h
 	<stdlib.h>
 	<stdio.h>
 	<TXlib.h>
 	<sys/stat.h>
 	"../../../Stack/libraries.h"
 	"../../cmd.h"
+
+1665862838 source:c:\codeblocksprojects\processor\cpu\cpu_functions.cpp
 

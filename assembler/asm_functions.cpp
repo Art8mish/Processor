@@ -2,7 +2,7 @@
 #include "include/asm.h"
 
 #define CHECK_AND_WRITE(cmd, str_code, code_num)       \
-            if (!stricmp(cmd, str_code))               \
+            if (stricmp(cmd, str_code) == 0)           \
             {                                          \
                 code[field->pc] = code_num;            \
             }
@@ -80,9 +80,9 @@ int AssemblyUserCode(struct AsmField *field)
 
     bool label = false;
 
-    field->pc = 0;
+    //field->pc = 0;
 
-    while (field->pc < field->lines_count * ARG_IN_LINE_AMOUNT)
+    while (strcmp(cmd, "hlt"))//field->pc < (int)field->lines_count)
     {
         label = false;
 
@@ -96,17 +96,6 @@ int AssemblyUserCode(struct AsmField *field)
         if (label_ex != NULL)
             label = true;
 
-        //process hlt
-        if (!stricmp(cmd, "hlt"))
-        {
-            code[field->pc] = HLT_CODE;
-            field->pc++;
-
-            PrintHeader(field);
-
-            return SUCCESS;
-        }
-
         //process label
         if (label)
         {
@@ -116,7 +105,7 @@ int AssemblyUserCode(struct AsmField *field)
         }
 
         #define DEF_CMD(name, num, arg, cpu_code, err_check)          \
-                if (!stricmp(cmd, #name))                             \
+                if (stricmp(cmd, #name) == 0)                         \
                 {                                                     \
                     if (arg)                                          \
                     {                                                 \
@@ -136,7 +125,9 @@ int AssemblyUserCode(struct AsmField *field)
             field->pc++;
     }
 
-    return NO_HLT_ERROR;
+    PrintHeader(field);
+
+    return SUCCESS;
 }
 
 int PrintHeader(struct AsmField *field)
@@ -159,7 +150,7 @@ int ProcessLabel(struct AsmField *field, char *cmd)
     if (isdigit(cmd[0]))
     {
         sscanf(cmd, "%d", &arg);
-        ASM_ERROR_CHECK(arg < 0 || arg >= LABELS_AMOUNT, SYNTAX_ERROR);
+        ASM_ERROR_CHECK(arg < 0 || arg >= (int)LABELS_AMOUNT, SYNTAX_ERROR);
         ASM_ERROR_CHECK(cmd[1] != ':', SYNTAX_ERROR);
 
         field->labels[arg].value = field->pc;
@@ -174,8 +165,8 @@ int ProcessLabel(struct AsmField *field, char *cmd)
         {
             ASM_ERROR_CHECK(i == LABELS_AMOUNT, LABEL_OVERFLOW_ERROR);
 
-            if (!stricmp(field->labels[i].name, cmd))
-            {
+            if (stricmp(field->labels[i].name, cmd) == 0)
+            {                                                             //свою функцию
                 field->labels[i].value = field->pc;
 
                 break;
@@ -250,8 +241,8 @@ int ReadArg(struct AsmField *field, char **buf)
     int  sign = 1;
 
     bool label   = false;
-    bool plus_ex    = false;
-    bool memory = false;
+    bool plus_ex = false;
+    bool memory  = false;
 
     if (**buf == '[')
     {
@@ -277,34 +268,19 @@ int ReadArg(struct AsmField *field, char **buf)
 
     ASM_ERROR_CHECK(label && plus_ex, SYNTAX_ERROR);
 
+
     if (plus_ex)
     {
-        sscanf(*buf, "%d", &arg);
+        int read_plus_construct_err = ReadPlusConstruction(field, buf);
 
-        field->code_buffer[++(field->pc)] = arg;
-
-        SKIP_DIGIT();
-
-        ASM_ERROR_CHECK(**buf != '+', SYNTAX_ERROR);
-
-        (*buf)++;
-
-        sscanf(*buf, "%s", reg);
-
-        ASM_ERROR_CHECK(reg[0] != 'r' || reg[2] != 'x', SYNTAX_ERROR);
-        ASM_ERROR_CHECK(reg[1]  < 'a' || reg[1]  > 'd', SYNTAX_ERROR);
-
-        arg = reg[1] - 'a' + 1;
-
-        field->code_buffer[++(field->pc)] = arg;
-
-        (*buf) += REGISTER_LENGTH;
+        ASM_ERROR_CHECK(read_plus_construct_err, READ_PLUS_CONSTRUCT_ERROR);
     }
 
     //read label
     else if (label)
     {
         int read_label_err = ReadLabel(field, buf);
+
         ASM_ERROR_CHECK(read_label_err, READ_LABEL_ERROR);
     }
 
@@ -313,13 +289,12 @@ int ReadArg(struct AsmField *field, char **buf)
     {
         field->code_buffer[field->pc] |= REGISTER_CODE;
 
-        ASM_ERROR_CHECK(*(*buf + 1) < 'a' || *(*buf + 1) > 'd', SYNTAX_ERROR);
-        ASM_ERROR_CHECK(*(*buf + 2) != 'x', SYNTAX_ERROR);
-        arg = *(*buf+1) - 'a' + 1;
+        int isreg_err = IsReg(*buf, &arg);
+        ASM_ERROR_CHECK(isreg_err, ISREG_ERROR);
 
         field->code_buffer[++field->pc] = arg;
 
-        (*buf) += 3; //register_length
+        (*buf) += REGISTER_LENGTH; //register_length
     }
 
     //read digit
@@ -350,6 +325,46 @@ int ReadArg(struct AsmField *field, char **buf)
         ASM_ERROR_CHECK(**buf != ']', SYNTAX_ERROR);
         (*buf)++;
     }
+
+    return SUCCESS;
+}
+
+int ReadPlusConstruction(struct AsmField *field, char **buf)
+{
+    ASM_ERROR_CHECK(buf == NULL, PTR_NULL);
+    ASM_ERROR_CHECK(field == NULL, PTR_NULL);
+
+    int arg = 0;
+
+    sscanf(*buf, "%d", &arg);
+
+    field->code_buffer[++(field->pc)] = arg;
+
+    SKIP_DIGIT();
+
+    ASM_ERROR_CHECK(**buf != '+', SYNTAX_ERROR);
+
+    (*buf)++;
+
+    int isreg_err = IsReg(*buf, &arg);
+    ASM_ERROR_CHECK(isreg_err, ISREG_ERROR);
+
+    field->code_buffer[++(field->pc)] = arg;
+
+    (*buf) += REGISTER_LENGTH;
+
+    return SUCCESS;
+}
+
+int IsReg(char *buf, int *arg)
+{
+    ASM_ERROR_CHECK(buf == NULL, PTR_NULL);
+    ASM_ERROR_CHECK(arg == NULL, PTR_NULL);
+
+    ASM_ERROR_CHECK(*(buf + 1) < 'a' || *(buf + 1) > 'd', SYNTAX_ERROR);
+    ASM_ERROR_CHECK(*(buf + 2) != 'x', SYNTAX_ERROR);
+
+    *arg = *(buf+1) - 'a' + 1;
 
     return SUCCESS;
 }

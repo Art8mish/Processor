@@ -213,7 +213,7 @@ int GetArg(struct CpuField *field, int *value)
     {
         CPU_ERROR_CHECK(val < 0 || val >= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);
         val = field->Ram[val];
-        printf("catch_memory_code, value = %d\n", val);
+        //printf("catch_memory_code, value = %d\n", val);
     }
 
     *value = val;
