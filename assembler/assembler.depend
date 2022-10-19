@@ -60,3 +60,34 @@
 
 1665073600 c:\codeblocksprojects\stack\stack_functions.h
 
+1666182470 source:c:\cbprojects\processor\assembler\asm_functions.cpp
+	"include/asm.h"
+	"../cmd.h"
+	"../cmd.h"
+
+1666182515 c:\cbprojects\processor\assembler\include\asm.h
+	<stdlib.h>
+	<stdio.h>
+	<TXlib.h>
+	<sys/stat.h>
+	"../../errors.h"
+	"../../cmd.h"
+
+1665065772 c:\cbprojects\stack\libraries.h
+	<stdio.h>
+	<stdlib.h>
+	<TXlib.h>
+	"config.h"
+	"stack_functions.h"
+
+1664915847 c:\cbprojects\stack\config.h
+
+1665073600 c:\cbprojects\stack\stack_functions.h
+
+1666182720 c:\cbprojects\processor\cmd.h
+
+1666108475 source:c:\cbprojects\processor\assembler\main.cpp
+	"include/asm.h"
+
+1666112446 c:\cbprojects\processor\errors.h
+

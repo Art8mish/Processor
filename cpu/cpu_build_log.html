@@ -4,126 +4,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>15-10-2022 at 22:40.43</u><br />
-Build ended on: <u>15-10-2022 at 22:40.50</u><p />
+Build started on: <u>19-10-2022 at 15:49.45</u><br />
+Build ended on: <u>19-10-2022 at 15:49.48</u><p />
 <b>-------------- Build: Debug in cpu (compiler: Use it for projects       = MinGW GCC + Strict)---------------</b><br />
-g++.exe  -c C:\CodeBlocksProjects\Processor\cpu\cpu_functions.cpp -o obj\Debug\cpu\cpu_functions.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
-g++.exe  -c C:\CodeBlocksProjects\Processor\cpu\main.cpp -o obj\Debug\cpu\main.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
-In file included from C:\CodeBlocksProjects\Processor\cpu\cpu.h:16:0,<br />
-                 from C:\CodeBlocksProjects\Processor\cpu\main.cpp:2:<br />
-C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp: In function 'int StackDumpFunction(Stack*, const char*, const char*, int, const char*)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:147:88: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
-         fprintf(log_file, "    left_stk_canary  = %X (ALIVE)\n", (*stk).left_stk_canary);<br />
-                                                                                        ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:150:87: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
-         fprintf(log_file, "    left_stk_canary  = %X (DEAD)\n", (*stk).left_stk_canary);<br />
-                                                                                       ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:153:90: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
-         fprintf(log_file, "    right_stk_canary  = %X (ALIVE)\n", (*stk).right_stk_canary);<br />
-                                                                                          ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../../Stack/verification_functions.cpp:156:89: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'Guard_t {aka long long unsigned int}' [-Wformat=]</font><br />
-         fprintf(log_file, "    right_stk_canary  = %X (DEAD)\n", (*stk).right_stk_canary);<br />
-                                                                                         ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int DumpProcessor(CpuField*)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:101:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     for (int i = 0; i &lt; field-&gt;op_count; i++)<br />
-                                ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:106:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     for (int i = 0; i &lt; field-&gt;op_count; i++)<br />
-                                ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:112:37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     for (int i = 0; i &lt; field-&gt;pc * 9; i++)<br />
-                                     ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:115:37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     for (int i = 0; i &lt; field-&gt;pc * 9; i++)<br />
-                                     ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:122:36: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     for (int i = 0; i &lt; field-&gt;stk.data_size; i++)<br />
-                                    ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:129:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     for (int i = 0; i &lt; REGS_AMOUNT; i++)<br />
-                         ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:139:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     for (int i = 0; i &lt; RAM_SIZE; i++)<br />
-                         ^<br />
-C:\CodeBlocksProjects\Processor\cpu\../cmd.h: In function 'int ExecuteCode(CpuField*)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\../cmd.h:134:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-     for (int i = 0; i &lt; RAM_SIZE; i++)<br />
-                         ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp:176:37: note: in definition of macro 'DEF_CMD'<br />
-                                     cpu_code                        \<br />
-                                     ^<br />
-In file included from C:\CodeBlocksProjects\Processor\cpu\main.cpp:2:0:<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int GetArg(CpuField*, int*)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:214:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-         CPU_ERROR_CHECK(val &lt; 0 || val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
-                                           ^<br />
-C:\CodeBlocksProjects\Processor\cpu\cpu.h:34:21: note: in definition of macro 'SOFT_ASSERT'<br />
-                 if (condition)                                                    \<br />
-                     ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp:214:9: note: in expansion of macro 'CPU_ERROR_CHECK'<br />
-         CPU_ERROR_CHECK(val &lt; 0 || val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
-         ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:214:43: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-         CPU_ERROR_CHECK(val &lt; 0 || val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
-                                           ^<br />
-C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
-                 if (cond)                                   \<br />
-                     ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int GetPtrArg(CpuField*, int**)':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:238:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-                         field-&gt;code_buffer[field-&gt;pc] &gt;= REGS_AMOUNT, SYNTAX_ERROR);<br />
-                                                          ^<br />
-C:\CodeBlocksProjects\Processor\cpu\cpu.h:34:21: note: in definition of macro 'SOFT_ASSERT'<br />
-                 if (condition)                                                    \<br />
-                     ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp:237:9: note: in expansion of macro 'CPU_ERROR_CHECK'<br />
-         CPU_ERROR_CHECK(field-&gt;code_buffer[field-&gt;pc] &lt; 0 ||<br />
-         ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:238:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-                         field-&gt;code_buffer[field-&gt;pc] &gt;= REGS_AMOUNT, SYNTAX_ERROR);<br />
-                                                          ^<br />
-C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
-                 if (cond)                                   \<br />
-                     ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:252:94: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-         CPU_ERROR_CHECK(field-&gt;code_buffer[field-&gt;pc] &lt; 0 || field-&gt;code_buffer[field-&gt;pc] &gt; REGS_AMOUNT, SYNTAX_ERROR);<br />
-                                                                                              ^<br />
-C:\CodeBlocksProjects\Processor\cpu\cpu.h:34:21: note: in definition of macro 'SOFT_ASSERT'<br />
-                 if (condition)                                                    \<br />
-                     ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp:252:9: note: in expansion of macro 'CPU_ERROR_CHECK'<br />
-         CPU_ERROR_CHECK(field-&gt;code_buffer[field-&gt;pc] &lt; 0 || field-&gt;code_buffer[field-&gt;pc] &gt; REGS_AMOUNT, SYNTAX_ERROR);<br />
-         ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:252:94: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-         CPU_ERROR_CHECK(field-&gt;code_buffer[field-&gt;pc] &lt; 0 || field-&gt;code_buffer[field-&gt;pc] &gt; REGS_AMOUNT, SYNTAX_ERROR);<br />
-                                                                                              ^<br />
-C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
-                 if (cond)                                   \<br />
-                     ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:259:47: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-         CPU_ERROR_CHECK(**val &lt; 0 || **val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
-                                               ^<br />
-C:\CodeBlocksProjects\Processor\cpu\cpu.h:34:21: note: in definition of macro 'SOFT_ASSERT'<br />
-                 if (condition)                                                    \<br />
-                     ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp:259:9: note: in expansion of macro 'CPU_ERROR_CHECK'<br />
-         CPU_ERROR_CHECK(**val &lt; 0 || **val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
-         ^<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:259:47: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
-         CPU_ERROR_CHECK(**val &lt; 0 || **val &gt;= RAM_SIZE, INCORRECT_RAM_CELL_ERROR);<br />
-                                               ^<br />
-C:\CodeBlocksProjects\Processor\cpu\cpu.h:51:21: note: in definition of macro 'CPU_ERROR_CHECK'<br />
-                 if (cond)                                   \<br />
-                     ^<br />
-C:\CodeBlocksProjects\Processor\cpu\main.cpp: In function 'int main()':<br />
-<font color="#0000ff">C:\CodeBlocksProjects\Processor\cpu\main.cpp:37:1: warning: stack usage is 40240 bytes [-Wstack-usage=]</font><br />
- }<br />
- ^<br />
-g++.exe  -o bin\Debug\cpu.exe obj\Debug\cpu\cpu_functions.o obj\Debug\cpu\main.o<br />
-Output size is 2,26 MB<br />
-<font color="#0000ff">Process terminated with status 0 (0 minutes, 7 seconds)</font><br />
-<font color="#0000ff">0 errors, 21 warnings (0 minutes, 7 seconds)</font><br />
+g++.exe  -c C:\CBProjects\Processor\cpu\cpu_functions.cpp -o obj\Debug\Processor\cpu\cpu_functions.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
+g++.exe  -c C:\CBProjects\Processor\cpu\io.cpp -o obj\Debug\Processor\cpu\io.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
+g++.exe  -c C:\CBProjects\Processor\cpu\main.cpp -o obj\Debug\Processor\cpu\main.o -Wall  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
+cc1plus.exe: out of memory allocating 301006 bytes<br />
+cc1plus.exe: out of memory allocating 301021 bytes<br />
+cc1plus.exe: out of memory allocating 301931 bytes<br />
+<font color="#a00000">Process terminated with status 1 (0 minutes, 2 seconds)</font><br />
+<font color="#a00000">0 errors, 0 warnings (0 minutes, 2 seconds)</font><br />
+<font color="#a00000">Process terminated with status 1 (0 minutes, 2 seconds)</font><br />
+<font color="#a00000">0 errors, 0 warnings (0 minutes, 2 seconds)</font><br />
+<font color="#a00000">Process terminated with status 1 (0 minutes, 2 seconds)</font><br />
+<font color="#a00000">0 errors, 0 warnings (0 minutes, 2 seconds)</font><br />
 </tt>
 </body>
 </html>

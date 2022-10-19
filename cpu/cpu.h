@@ -7,16 +7,10 @@
 #include <TXlib.h>
 #include <sys/stat.h>
 
-#ifndef STACK_LIB_INCLUDED
+#include "../../Stack/libraries.h"
 #define STACK_LIB_INCLUDED
 
-#include "../../Stack/libraries.h"
-#include "../../Stack/construct_functions.cpp"
-#include "../../Stack/pop_push_functions.cpp"
-#include "../../Stack/verification_functions.cpp"
-#include "../assembler/include/asm.h"
-
-#endif
+#include "../errors.h"
 
 #ifdef SOFT_ASSERT
 #undef SOFT_ASSERT
@@ -44,7 +38,7 @@
 
 
 
-#define CPU_ERROR_CHECK(cond, rtrn)                         \
+#define ERROR_CHECK(cond, rtrn)                             \
             do                                              \
             {                                               \
                 SOFT_ASSERT(cond);                          \
@@ -72,30 +66,32 @@
 const size_t CPU_VERSION      = 1;
 
 const size_t SIGNATURE_LENGTH = 3;
-const size_t RAM_SIZE         = 10000;
+const size_t RAM_SIZE         = 100;
 const size_t REGS_AMOUNT      = 5;
+const size_t HEADER_SIZE      = 3;
 
-const char * const SIGNATURE         = "DP";
+const char * const SIGNATURE  = "DP";
 
-//static const char *const CODE_INPUT_FILE   = "C:/Program Files/CodeBlocks/CBProjects/Processor/io/asm_output";
-//static const char *const LOG_FILE_NAME     = "C:/Program Files/CodeBlocks/CBProjects/Processor/io/cpu_out.txt";
-
-enum CpuError
+#define DEF_CMD(name, num, arg, code, err_check) \
+            name##_CODE = num,
+enum Code
 {
-        WRONG_SIGNATURE_ERROR = 35,
-          WRONG_VERSION_ERROR = 36,
-              READ_CODE_ERROR = 37,
-    INCORRECT_USER_CODE_ERROR = 38,
-           PERFORM_CODE_ERROR = 39,
-     INCORRECT_RAM_CELL_ERROR = 40,
-       DIVISION_BY_ZERO_ERROR = 41,
-                  EMPTY_ERROR = 42
+    #include "../cmd.h"
+};
+
+#undef DEF_CMD
+
+enum CmdConst
+{
+    IMMEDIATE_CONST_CODE = 1 << 16,
+           REGISTER_CODE = 1 << 17,
+             MEMORY_CODE = 1 << 18,
 };
 
 
 struct CpuField
 {
-    int    *code_buffer = NULL;
+    int    *code_buffer   = NULL;
     size_t  op_count      = 0;
     unsigned int pc       = 0;
     struct Stack stk      = {};
@@ -103,6 +99,9 @@ struct CpuField
     int Regs[REGS_AMOUNT] = {0, 0, 0, 0, 0};
     int  Ram[RAM_SIZE]    = {};
 };
+
+int CpuFieldCtor(struct CpuField *field);
+int CpuFieldDtor(struct CpuField *field);
 
 int ReadCode(const char *code_file_name, struct CpuField *field);
 

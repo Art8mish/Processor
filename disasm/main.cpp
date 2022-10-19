@@ -1,20 +1,21 @@
 
 #include "disasm.h"
 
-const char *CODE_INPUT_FILE = "../io/asm_output";
-const char *LOG_FILE_NAME   = "../io/disasm_out.txt";
-
 int main()
 {
     struct DisAsmField field = {};
 
-    int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
+    DisAsmFieldCtor(&field);
 
+    int read_code_err_check = ReadCode(CODE_INPUT_FILE, &field);
     ERROR_CHECK(read_code_err_check, READ_CODE_ERROR);
 
     int err_check = DisAsmCode(&field);
-
     ERROR_CHECK(err_check, DISASM_CODE_ERROR);
+
+    DisAsmFieldDtor(&field);
+
+    printf("SUCCESFUL END.\n");
 
     return SUCCESS;
 }
@@ -45,7 +46,7 @@ int DisAsmCode(struct DisAsmField *field)
 
             #undef DEF_CMD
 
-            default : printf(" # ReAsmCode(): ERROR: code = %d. \n", code[field->pc] & (int)0xFFFF);
+            default : printf(" # DisAsmCode(): ERROR: code = %d. \n", code[field->pc] & (int)0xFFFF);
                       return SYNTAX_ERROR;
                       break;
         }
@@ -140,3 +141,22 @@ int PrintArg(struct DisAsmField *field, FILE *out_file)
 
     return SUCCESS;
 }
+
+int DisAsmFieldCtor(struct DisAsmField *field)
+{
+    ERROR_CHECK(field == NULL, NULL_PTR_ERROR);
+
+    *field = {};
+
+    return SUCCESS;
+}
+
+int DisAsmFieldDtor(struct DisAsmField *field)
+{
+    ERROR_CHECK(field == NULL, NULL_PTR_ERROR);
+
+    free(field->code_buffer);
+
+    return SUCCESS;
+}
+

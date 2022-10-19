@@ -31,6 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../cpu/io.cpp" />
 		<Unit filename="../io/disasm_out.txt" />
 		<Unit filename="disasm.h" />
 		<Unit filename="main.cpp" />

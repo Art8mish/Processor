@@ -15,3 +15,41 @@
 	"disasm.h"
 	"../cmd.h"
 
+1666104681 source:c:\cbprojects\processor\disasm\main.cpp
+	"disasm.h"
+	"../cmd.h"
+
+1666105372 c:\cbprojects\processor\disasm\disasm.h
+	<stdlib.h>
+	<stdio.h>
+	<TXlib.h>
+	"../cmd.h"
+
+1665963597 c:\cbprojects\processor\cpu\cpu.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<TXlib.h>
+	<sys/stat.h>
+	"../../Stack/libraries.h"
+	"../errors.h"
+	"../cmd.h"
+
+1665065772 c:\cbprojects\stack\libraries.h
+	<stdio.h>
+	<stdlib.h>
+	<TXlib.h>
+	"config.h"
+	"stack_functions.h"
+
+1664915847 c:\cbprojects\stack\config.h
+
+1665073600 c:\cbprojects\stack\stack_functions.h
+
+1666108463 c:\cbprojects\processor\errors.h
+
+1665957292 c:\cbprojects\processor\cmd.h
+
+1666105107 source:c:\cbprojects\processor\cpu\io.cpp
+	"cpu.h"
+

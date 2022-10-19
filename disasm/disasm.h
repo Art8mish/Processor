@@ -54,9 +54,16 @@
 
 #define VERSION 1
 
+static const char *CODE_INPUT_FILE = "../io/asm_output";
+static const char *LOG_FILE_NAME   = "../io/disasm_out.txt";
+
+
+
 const size_t HEADER_SIZE      = 3;
+
 const size_t SIGNATURE_LENGTH = 3;
-const char *SIGNATURE         = "DP";
+const char  *SIGNATURE        = "DP";
+
 
 #define DEF_CMD(name, num, arg, code, err_check)  \
             name##_CODE = num,
@@ -93,15 +100,21 @@ enum DisAsmError
 struct DisAsmField
 {
     int    *code_buffer = NULL;
-    size_t  op_count      = 0;
-    unsigned int pc       = 0;
+    size_t  op_count    = 0;
+    unsigned int pc     = 0;
 };
 
 
 int ReadCode(const char *code_file_name, struct DisAsmField *field);
 
+int ReadHeader(FILE *input_file, struct DisAsmField *field);
+
+
 int DisAsmCode(struct DisAsmField *field);
 
 int PrintArg(struct DisAsmField *field, FILE *out_file);
+
+int DisAsmFieldCtor(struct DisAsmField *field);
+int DisAsmFieldDtor(struct DisAsmField *field);
 
 #endif // DISASM_H_INCLUDED

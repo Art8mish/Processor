@@ -3,12 +3,15 @@ push 2
 add
 pop rax
 
-call :next
+call :48
 
-hlt
+jmp :end
 
-next:
+48:
 push 4+rax
 push 5
 dump
 ret
+
+end:
+hlt

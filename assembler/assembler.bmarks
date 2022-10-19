@@ -2,18 +2,17 @@
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="98" topLine="0" />
-		<BrowseMarks positions="30,166,365,382,420,458,603,623,683,759,836,880,1039,1112" />
+		<Cursor position="691" topLine="16" />
 		<Book_Marks positions="1268,377" />
 	</File>
 	<File name="include\asm.h" open="1" top="0" tabpos="3">
-		<Cursor position="3833" topLine="93" />
-		<BrowseMarks positions="4105,4149,4222,4278,4327,4408,2892,3032,3075,3078,3222,3263,3356,3478,3508,3538,3845,3953,4018,4103" />
+		<Cursor position="4034" topLine="102" />
+		<BrowseMarks positions="2104,2516,2559,2562,2706,2747,2840,2962,2994,3017,3498,3608,3723,3808,3810,3854,3927,3981,4030,4158" />
 		<Book_Marks positions="2189" />
 	</File>
 	<File name="asm_functions.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="5197" topLine="132" />
-		<BrowseMarks positions="28,88,5368,5402,5864,12988,8454" />
+		<Cursor position="7502" topLine="178" />
+		<BrowseMarks positions="6724,6747,11432" />
 		<Book_Marks positions="5048,8799,2837,5993,277,3601,5595,2138" />
 	</File>
 </BrowseTracker_layout_file>

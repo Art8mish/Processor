@@ -31,9 +31,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../io/cpu_out.txt" />
+		<Unit filename="../../Stack/construct_functions.cpp" />
+		<Unit filename="../../Stack/pop_push_functions.cpp" />
+		<Unit filename="../../Stack/verification_functions.cpp" />
 		<Unit filename="cpu.h" />
 		<Unit filename="cpu_functions.cpp" />
+		<Unit filename="io.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

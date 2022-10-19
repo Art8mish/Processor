@@ -6,7 +6,6 @@ CFLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equ
          -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192         \
          -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE				   \
 
-
 all : standart_compilation.exe
 
 standart_compilation.exe : main.o
@@ -14,6 +13,15 @@ standart_compilation.exe : main.o
 
 main.o : main.cpp
 	$(CC) $(CFLAGS) -c main.cpp
+
+#pop_push_functions.o : pop_push_functions.cpp
+#	$(CC) $(CFLAGS) -c pop_push_functions.cpp
+
+#verification_functions.o : verification_functions.cpp
+#	$(CC) $(CFLAGS) -c verification_functions.cpp
+
+#construct_functions.o : construct_functions.cpp
+#	$(CC) $(CFLAGS) -c construct_functions.cpp
 
 clean:
 	rm *.o standart_compilation.exe

@@ -4,12 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <TXlib.h>
-#include <sys/stat.h>
-//#include "../../Stack/libraries.h"
-//#include "../../Stack/construct_functions.cpp"
-//#include "../../Stack/pop_push_functions.cpp"
-//#include "../../Stack/verification_functions.cpp"
-//#include "../assembler/include/asm.h"
 
 
 #ifdef SOFT_ASSERT
@@ -38,7 +32,7 @@
 
 
 
-#define ERROR_CHECK(cond, rtrn)                         \
+#define ERROR_CHECK(cond, rtrn)                             \
             do                                              \
             {                                               \
                 SOFT_ASSERT(cond);                          \
@@ -60,12 +54,20 @@
 
 #define VERSION 1
 
-const size_t HEADER_SIZE      = 3;
-const size_t SIGNATURE_LENGTH = 3;
-const char *SIGNATURE         = "DP";
+static const char *CODE_INPUT_FILE = "../io/asm_output";
+static const char *LOG_FILE_NAME   = "../io/disasm_out.txt";
 
-#define DEF_CMD(name, num, arg, code, err_check) \
+
+
+const size_t HEADER_SIZE      = 3;
+
+const size_t SIGNATURE_LENGTH = 3;
+const char  *SIGNATURE        = "DP";
+
+
+#define DEF_CMD(name, num, arg, code, err_check)  \
             name##_CODE = num,
+
 enum Code
 {
     #include "../cmd.h"
@@ -82,24 +84,24 @@ enum CmdConst
 
 enum DisAsmError
 {
-                 SUCCESS = 0,
-         READ_CODE_ERROR = 1,
-            SYNTAX_ERROR = 2,
-       DISASM_CODE_ERROR = 3,
-         WRONG_REG_ERROR = 4,
-          NULL_PTR_ERROR = 5,
-      OPENING_FILE_ERROR = 6,
-             FREAD_ERROR = 7,
-     WRONG_VERSION_ERROR = 8,
-    WRONG_SIGNATURE_ERROR
+                  SUCCESS = 0,
+          READ_CODE_ERROR = 1,
+             SYNTAX_ERROR = 2,
+        DISASM_CODE_ERROR = 3,
+          WRONG_REG_ERROR = 4,
+           NULL_PTR_ERROR = 5,
+       OPENING_FILE_ERROR = 6,
+              FREAD_ERROR = 7,
+      WRONG_VERSION_ERROR = 8,
+    WRONG_SIGNATURE_ERROR = 9,
 };
 
 
 struct DisAsmField
 {
     int    *code_buffer = NULL;
-    size_t  op_count      = 0;
-    unsigned int pc       = 0;
+    size_t  op_count    = 0;
+    unsigned int pc     = 0;
 };
 
 
@@ -108,5 +110,8 @@ int ReadCode(const char *code_file_name, struct DisAsmField *field);
 int DisAsmCode(struct DisAsmField *field);
 
 int PrintArg(struct DisAsmField *field, FILE *out_file);
+
+int DisAsmFieldCtor(struct DisAsmField *field);
+int DisAsmFieldDtor(struct DisAsmField *field);
 
 #endif // DISASM_H_INCLUDED

@@ -1,109 +1,21 @@
 # depslib dependency file v1.0
-1665830680 source:c:\program files\codeblocks\cbprojects\processor\cpu\main.cpp
-	"cpu.h"
-	"../cmd.h"
+1665685682 source:c:\cbprojects\stack\construct_functions.cpp
+	"libraries.h"
 
-1665828605 c:\program files\codeblocks\cbprojects\processor\cpu\cpu.h
-	<stdlib.h>
-	<stdio.h>
-	<math.h>
-	<TXlib.h>
-	<sys/stat.h>
-	"C:/Program Files/CodeBlocks/CBProjects/Stack/libraries.h"
-	"C:/Program Files/CodeBlocks/CBProjects/Stack/construct_functions.cpp"
-	"C:/Program Files/CodeBlocks/CBProjects/Stack/pop_push_functions.cpp"
-	"C:/Program Files/CodeBlocks/CBProjects/Stack/verification_functions.cpp"
-	"C:/Program Files/CodeBlocks/CBProjects/Processor/assembler/include/asm.h"
-
-1665065772 c:\program files\codeblocks\cbprojects\stack\libraries.h
+1665065772 c:\cbprojects\stack\libraries.h
 	<stdio.h>
 	<stdlib.h>
 	<TXlib.h>
 	"config.h"
 	"stack_functions.h"
 
-1664915847 c:\program files\codeblocks\cbprojects\stack\config.h
+1664915847 c:\cbprojects\stack\config.h
 
-1665073600 c:\program files\codeblocks\cbprojects\stack\stack_functions.h
+1665073600 c:\cbprojects\stack\stack_functions.h
 
-1665065681 c:\program files\codeblocks\cbprojects\processor\asm\include\asm.h
-	<stdlib.h>
-	<stdio.h>
-	<TXlib.h>
-	<sys/stat.h>
-	"../../../Stack/libraries.h"
-
-1665686139 c:\program files\codeblocks\cbprojects\processor\assembler\include\asm.h
-	<stdlib.h>
-	<stdio.h>
-	<TXlib.h>
-	<sys/stat.h>
-	"C:/Program Files/CodeBlocks/CBProjects/Stack/libraries.h"
-	"../../cmd.h"
-
-1665685682 c:\program files\codeblocks\cbprojects\stack\construct_functions.cpp
+1665684975 source:c:\cbprojects\stack\pop_push_functions.cpp
 	"libraries.h"
 
-1665684975 c:\program files\codeblocks\cbprojects\stack\pop_push_functions.cpp
+1664920381 source:c:\cbprojects\stack\verification_functions.cpp
 	"libraries.h"
-
-1664567716 c:\program files\codeblocks\cbprojects\stack\verification_functions.cpp
-	"libraries.h"
-
-1665831184 c:\program files\codeblocks\cbprojects\processor\cmd.h
-
-1665685963 source:c:\program files\codeblocks\cbprojects\processor\cpu\cpu_functions.cpp
-	"cpu.h"
-	"C:/Program Files/CodeBlocks/CBProjects/Stack/construct_functions.cpp"
-	"C:/Program Files/CodeBlocks/CBProjects/Stack/pop_push_functions.cpp"
-	"C:/Program Files/CodeBlocks/CBProjects/Stack/verification_functions.cpp"
-	"../cmd.h"
-
-1665861776 source:c:\codeblocksprojects\processor\cpu\main.cpp
-	"cpu.h"
-	"../cmd.h"
-
-1665862843 c:\codeblocksprojects\processor\cpu\cpu.h
-	<stdlib.h>
-	<stdio.h>
-	<math.h>
-	<TXlib.h>
-	<sys/stat.h>
-	"../../Stack/libraries.h"
-	"../../Stack/construct_functions.cpp"
-	"../../Stack/pop_push_functions.cpp"
-	"../../Stack/verification_functions.cpp"
-	"../assembler/include/asm.h"
-
-1665850738 c:\codeblocksprojects\processor\cmd.h
-
-1665065772 c:\codeblocksprojects\stack\libraries.h
-	<stdio.h>
-	<stdlib.h>
-	<TXlib.h>
-	"config.h"
-	"stack_functions.h"
-
-1664915847 c:\codeblocksprojects\stack\config.h
-
-1665073600 c:\codeblocksprojects\stack\stack_functions.h
-
-1665685682 c:\codeblocksprojects\stack\construct_functions.cpp
-	"libraries.h"
-
-1665684975 c:\codeblocksprojects\stack\pop_push_functions.cpp
-	"libraries.h"
-
-1664920381 c:\codeblocksprojects\stack\verification_functions.cpp
-	"libraries.h"
-
-1665855993 c:\codeblocksprojects\processor\assembler\include\asm.h
-	<stdlib.h>
-	<stdio.h>
-	<TXlib.h>
-	<sys/stat.h>
-	"../../../Stack/libraries.h"
-	"../../cmd.h"
-
-1665862838 source:c:\codeblocksprojects\processor\cpu\cpu_functions.cpp
 

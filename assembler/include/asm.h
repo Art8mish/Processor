@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <TXlib.h>
 #include <sys/stat.h>
-#include "../../../Stack/libraries.h"
+#include "../../errors.h"
 
 #ifdef SOFT_ASSERT
 #undef SOFT_ASSERT
@@ -32,7 +32,7 @@
 #endif
 
 
-#define ASM_ERROR_CHECK(cond, rtrn)                         \
+#define ERROR_CHECK(cond, rtrn)                             \
             do                                              \
             {                                               \
                 SOFT_ASSERT(cond);                          \
@@ -52,39 +52,23 @@
             } while(false)
 
 
-const size_t ASM_VERSION        = 1;
+const size_t ASM_VERSION     = 1;
 
-const size_t MAX_WORD_LEN       = 34;
-const size_t HEADER_SIZE        = 3;
-const size_t ARG_IN_LINE_AMOUNT = 3;
-const size_t LABELS_AMOUNT      = 10;
-const size_t REGISTER_LENGTH    = 3;
+const size_t MAX_WORD_LEN    = 34;
+const size_t HEADER_SIZE     = 3;
+const size_t MAX_LINE_SIZE   = 3;
+const size_t LABELS_AMOUNT   = 10;
+const size_t REGISTER_LENGTH = 3;
 
 const int   LABEL_VALUE_POISON  = -1;
 
+const char * const  INPUT_FILE_NAME = "../io/user_file.txt";
+//const char * const  INPUT_FILE_NAME = "../io/krujochek.txt";
+//const char * const  INPUT_FILE_NAME = "../io/quadratic.txt";
+//const char * const  INPUT_FILE_NAME = "../io/factorial.txt";
 
-enum AsmError
-{
-          USER_FILE_OPENING_ERROR = 13,
-          USER_FILE_CLOSING_ERROR = 14,
-    OUTPUT_ASM_FILE_OPENING_ERROR = 15,
-    OUTPUT_ASM_FILE_CLOSING_ERROR = 16,
-                      FREAD_ERROR = 17,
-                       STAT_ERROR = 18,
-                  COUNTSIZE_ERROR = 19,
-                 COUNTLINES_ERROR = 20,
-             UNKNOWN_COMAND_ERROR = 21,
-                     NO_HLT_ERROR = 22,
-                     SYNTAX_ERROR = 23,
-             LABEL_OVERFLOW_ERROR = 24,
-    NO_LABEL_WITH_THIS_NAME_ERROR = 25,
-           FIND_LABEL_VALUE_ERROR = 26,
-              PROCESS_LABEL_ERROR = 27,
-                READ_HEADER_ERROR = 28,
-                 READ_LABEL_ERROR = 29,
-                      ISREG_ERROR = 30,
-        READ_PLUS_CONSTRUCT_ERROR = 31,
-};
+const char * const OUTPUT_FILE_NAME = "../io/asm_output";
+
 
 #define DEF_CMD(name, num, arg, code, err_check) \
             name##_CODE = num,
@@ -115,21 +99,27 @@ struct AsmField
     size_t  chars_count = 0;
     int    *code_buffer = NULL;
     size_t  lines_count = 0;
-    int     pc          = 0;
-    struct  Label labels[LABELS_AMOUNT] = {{}};
+
+    int     pc = 0;
+
+    struct Label labels[LABELS_AMOUNT] = {{}};
 };
+
+int ProccessMainArgument(int argc, char *argv[], const char **input_file_name, const char **output_file_name);
 
 int ReadUserFile(const char *user_file_name, struct AsmField *field);
 
 int AssemblyUserCode(struct AsmField *field);
 
 int WriteCode(struct AsmField *field, const char *output_file_name);
+int WriteHeader(struct AsmField *field, FILE *output_file);
 
 int CountSize(const char *file_name, size_t *file_size);
 int CountLines(struct AsmField *field, size_t *value);
 
 int ReadArg(struct AsmField *field, char **buf);
 
+int ReadDigit(struct AsmField *field, char **buf);
 int ReadPlusConstruction(struct AsmField *field, char **buf);
 int IsReg(char *buf, int *arg);
 int ReadLabel(struct AsmField *field, char **buf);
@@ -144,5 +134,8 @@ int InitializeLabels(struct AsmField *field);
 int DumpCode(struct AsmField *field);
 
 int DumpField(struct AsmField *field);
+
+int AsmFieldCtor(struct AsmField *field);
+int AsmFieldDtor(struct AsmField *field);
 
 #endif // ASM_H_INCLUDED
