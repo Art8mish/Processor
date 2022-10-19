@@ -33,6 +33,7 @@
 		</Compiler>
 		<Unit filename="Makefile" />
 		<Unit filename="asm_functions.cpp" />
+		<Unit filename="asm_io.cpp" />
 		<Unit filename="include/asm.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

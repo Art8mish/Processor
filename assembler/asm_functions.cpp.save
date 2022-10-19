@@ -34,72 +34,6 @@
 
 const char *SIGNATURE = "DP";
 
-int ProccessMainArgument(int argc, char *argv[], const char **input_file_name, const char **output_file_name)
-{
-    ERROR_CHECK(            argv == NULL, PTR_NULL);
-    ERROR_CHECK( input_file_name == NULL, PTR_NULL);
-    ERROR_CHECK(output_file_name == NULL, PTR_NULL);
-
-
-    if (argc == 1)
-    {
-         *input_file_name =  INPUT_FILE_NAME;
-        *output_file_name = OUTPUT_FILE_NAME;
-    }
-
-    else if (argc == 2)
-    {
-         *input_file_name = argv[1];
-        *output_file_name = OUTPUT_FILE_NAME;
-    }
-
-    else if (argc == 3)
-    {
-         *input_file_name = argv[1];
-        *output_file_name = argv[2];
-    }
-
-    else
-    {
-        return TOO_MANY_MAIN_ARGS_ERROR;
-    }
-
-    return SUCCESS;
-}
-
-int ReadUserFile(const char *user_file_name, struct AsmField *field)
-{
-    ERROR_CHECK(user_file_name == NULL, PTR_NULL);
-    ERROR_CHECK(         field == NULL, PTR_NULL);
-
-    //count file_size
-    int countsize_err = CountSize(user_file_name, &(field->chars_count));
-    ERROR_CHECK(countsize_err, COUNTSIZE_ERROR);
-
-    //read file
-    FILE *input_file = fopen(user_file_name, "r");
-    READFILE_ERROR_CHECK(input_file == NULL, USER_FILE_OPENING_ERROR, input_file);
-
-    field->char_buffer = (char*) calloc(field->chars_count + 1, sizeof(char));
-    READFILE_ERROR_CHECK(field->char_buffer == NULL, CALLOC_ERROR, input_file);
-
-    fread(field->char_buffer, sizeof(char), field->chars_count, input_file);
-
-    int fread_error_check = ferror(input_file);
-    READFILE_ERROR_CHECK(fread_error_check, FREAD_ERROR, input_file);
-
-    fclose(input_file);
-
-    //count lines in file
-    int countlines_err = CountLines(field, &(field->lines_count));
-
-    ERROR_CHECK(countlines_err, COUNTLINES_ERROR);
-
-    field->code_buffer = (int*) calloc(field->lines_count * MAX_LINE_SIZE, sizeof(int));
-    field->code_buffer += HEADER_SIZE;
-
-    return SUCCESS;
-}
 
 int AssemblyUserCode(struct AsmField *field)
 {
@@ -157,42 +91,7 @@ int AssemblyUserCode(struct AsmField *field)
     return SUCCESS;
 }
 
-int WriteHeader(struct AsmField *field, FILE *output_file)
-{
-    ERROR_CHECK(field == NULL, PTR_NULL);
-
-    int header[HEADER_SIZE] = {};
-
-    *((char*)header)     = SIGNATURE[0];
-    *((char*)header + 1) = SIGNATURE[1];
-
-             header[1]   = ASM_VERSION;
-             header[2]   = field->pc;
-
-    fwrite(header, HEADER_SIZE, sizeof(int), output_file);
-
-    return SUCCESS;
-}
-
 int ProcessLabel(struct AsmField *field, char *cmd)
-{
-    ERROR_CHECK(field == NULL, PTR_NULL);
-    ERROR_CHECK(cmd   == NULL, PTR_NULL);
-
-    int cmd_len = strlen(cmd);
-
-    ERROR_CHECK(cmd[cmd_len - 1] != ':', SYNTAX_ERROR);
-
-    cmd[cmd_len - 1] = '\0';
-
-    int find_free_label_err = FindFreeLabel(field, cmd);
-    ERROR_CHECK(find_free_label_err, FIND_FREE_LABEL_ERROR);
-
-
-    return SUCCESS;
-}
-
-int FindFreeLabel(struct AsmField *field, char *cmd)
 {
     ERROR_CHECK(field == NULL, PTR_NULL);
     ERROR_CHECK(cmd   == NULL, PTR_NULL);
@@ -200,44 +99,30 @@ int FindFreeLabel(struct AsmField *field, char *cmd)
     int cmd_len = strlen(cmd);
     int arg     = 0;
 
-    for (int i = 0; i <= (int)LABELS_AMOUNT; i++) //find free label
+    ERROR_CHECK(cmd[cmd_len - 1] != ':', SYNTAX_ERROR);
+
+    cmd[cmd_len - 1] = '\0';
+
+    FindLabelValue(field, cmd, &arg);
+
+    if (arg == LABEL_VALUE_POISON)
     {
-        ERROR_CHECK(i == LABELS_AMOUNT, LABEL_OVERFLOW_ERROR);
-        /*
-        FindLabelValue(field, cmd, &arg);
-
-        if (arg != LABEL_VALUE_POISON)
+        for (int i = 0; i <= (int)LABELS_AMOUNT; i++)
         {
-            break;
-        }
+            ERROR_CHECK(i == LABELS_AMOUNT, LABEL_OVERFLOW_ERROR);
 
-        if ()
-        {
-            for ()
-            strcpy(field->labels[i].name, cmd);
+            if (field->labels[i].value == LABEL_VALUE_POISON
+                && strcmp(field->labels[i].name, "") == 0)
+            {
+                strcpy(field->labels[i].name, cmd);
 
-            field->labels[i].value = field->pc;
+                field->labels[i].value = field->pc;
 
-            break;
-        }*/
-
-        if (stricmp(field->labels[i].name, cmd) == 0)
-        {
-            //field->labels[i].value = field->pc;
-
-            break;
-        }
-
-        if (field->labels[i].value == LABEL_VALUE_POISON
-            && strcmp(field->labels[i].name, "") == 0)
-        {
-            strcpy(field->labels[i].name, cmd);
-
-            field->labels[i].value = field->pc;
-
-            break;
+                break;
+            }
         }
     }
+
 
     return SUCCESS;
 }
@@ -486,40 +371,7 @@ int FindLabelValue(struct AsmField *field, char *label_name, int *arg)
     return SUCCESS;
 }
 
-int InitializeLabels(struct AsmField *field)
-{
-    const char *label_poison_name = "";
-    int label_name_len = strlen(label_poison_name);
 
-    for (unsigned int i = 0; i < LABELS_AMOUNT; i++)
-    {
-        for (int j = 0; j < label_name_len; j++)
-            field->labels[i].name[j] = label_poison_name[j];
-
-        field->labels[i].value = LABEL_VALUE_POISON;
-    }
-
-    return SUCCESS;
-}
-
-int WriteCode(struct AsmField *field, const char *output_file_name)
-{
-    ERROR_CHECK(           field == NULL, PTR_NULL);
-    ERROR_CHECK(output_file_name == NULL, PTR_NULL);
-
-    FILE *output_file = fopen(output_file_name, "w");
-
-    int write_header_err = WriteHeader(field, output_file);
-    ERROR_CHECK(write_header_err, WRITE_HEADER_ERROR);
-
-    fwrite(field->code_buffer, field->pc, sizeof(int), output_file);
-
-    fclose(output_file);
-
-    printf("\nCODE WRITED SUCCESSFULLY\n");
-
-    return SUCCESS;
-}
 
 int DumpCode(struct AsmField *field)
 {
@@ -596,6 +448,23 @@ int AsmFieldCtor(struct AsmField *field)
 
     return SUCCESS;
 }
+
+int InitializeLabels(struct AsmField *field)
+{
+    const char *label_poison_name = "";
+    int label_name_len = strlen(label_poison_name);
+
+    for (unsigned int i = 0; i < LABELS_AMOUNT; i++)
+    {
+        for (int j = 0; j < label_name_len; j++)
+            field->labels[i].name[j] = label_poison_name[j];
+
+        field->labels[i].value = LABEL_VALUE_POISON;
+    }
+
+    return SUCCESS;
+}
+
 
 int AsmFieldDtor(struct AsmField *field)
 {

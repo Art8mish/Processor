@@ -123,13 +123,13 @@ int PrintArg(struct DisAsmField *field, FILE *out_file)
     if (cmd & REGISTER_CODE)
     {
         field->pc++;
-        if (field->code_buffer[field->pc]      == 1)
+        if (field->code_buffer[field->pc]      ==  FIRST_REG)
             fprintf(out_file, "rax");
-        else if (field->code_buffer[field->pc] == 2)
+        else if (field->code_buffer[field->pc] == SECOND_REG)
             fprintf(out_file, "rbx");
-        else if (field->code_buffer[field->pc] == 3)
+        else if (field->code_buffer[field->pc] ==  THIRD_REG)
             fprintf(out_file, "rcx");
-        else if (field->code_buffer[field->pc] == 4)
+        else if (field->code_buffer[field->pc] == FOURTH_REG)
             fprintf(out_file, "rdx");
         else
             return WRONG_REG_ERROR;

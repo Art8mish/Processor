@@ -28,8 +28,8 @@ int ExecuteCode(struct CpuField *field)
 {
     FILE *log_file = fopen(LOG_FILE_NAME, "a");
 
-    int *ptr_arg_val = &arg_val;
     int      arg_val = 0;
+    int *ptr_arg_val = &arg_val;
 
     int *code = field->code_buffer;
 
@@ -43,13 +43,11 @@ int ExecuteCode(struct CpuField *field)
         switch(GETKEY(code[field->pc]))
         {
 
-            #define DEF_CMD(name, num, arg, cpu_code, err_check)    \
-                case name##_CODE :  if (arg == 1)                   \
-                                        GetArg(field, &value);      \
-                                    else if (arg == 2)              \
-                                        GetPtrArg(field, &pt_val);  \
-                                    err_check                       \
-                                    cpu_code                        \
+            #define DEF_CMD(name, num, arg, cpu_code, err_check)         \
+                case name##_CODE :  if (arg == 1)                        \
+                                        GetPtrArg(field, &ptr_arg_val);  \
+                                    err_check                            \
+                                    cpu_code                             \
                                     break;
 
 
@@ -61,8 +59,8 @@ int ExecuteCode(struct CpuField *field)
             #undef DEF_CMD
         }
 
-        value = 0;
-        pt_val = &value;
+        arg_val = 0;
+        ptr_arg_val = &arg_val;
         field->pc++;
     }
 
@@ -71,6 +69,7 @@ int ExecuteCode(struct CpuField *field)
     return SUCCESS;
 }
 
+/*
 int GetArg(struct CpuField *field, int *value)
 {
     ERROR_CHECK(field == NULL, PTR_NULL);
@@ -95,7 +94,7 @@ int GetArg(struct CpuField *field, int *value)
     *value = val;
 
     return SUCCESS;
-}
+}*/
 
 int GetPtrArg(struct CpuField *field, int **val)
 {

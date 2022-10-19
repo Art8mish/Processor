@@ -5,9 +5,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <TXlib.h>
-#include <sys/stat.h>
 
-#include "../../Stack/libraries.h"
+#include "../stack_functions/libraries.h"
 #define STACK_LIB_INCLUDED
 
 #include "../errors.h"
@@ -72,6 +71,8 @@ const size_t HEADER_SIZE      = 3;
 
 const char * const SIGNATURE  = "DP";
 
+static const char * const LOG_FILE_NAME = "../io/cpu_out.txt";
+
 #define DEF_CMD(name, num, arg, code, err_check) \
             name##_CODE = num,
 enum Code
@@ -99,6 +100,8 @@ struct CpuField
     int Regs[REGS_AMOUNT] = {0, 0, 0, 0, 0};
     int  Ram[RAM_SIZE]    = {};
 };
+
+
 
 int CpuFieldCtor(struct CpuField *field);
 int CpuFieldDtor(struct CpuField *field);

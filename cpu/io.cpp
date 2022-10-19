@@ -1,8 +1,6 @@
 
 #include "cpu.h"
 
-static const char * const LOG_FILE_NAME     = "../io/cpu_out.txt";
-
 
 int ReadCode(const char *code_file_name, struct CpuField *field)
 {

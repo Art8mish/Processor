@@ -1,21 +1,35 @@
 # depslib dependency file v1.0
-1665685682 source:c:\cbprojects\stack\construct_functions.cpp
-	"libraries.h"
+1666186582 source:c:\cbprojects\processor\cpu\cpu_functions.cpp
+	"cpu.h"
+	"../cmd.h"
 
-1665065772 c:\cbprojects\stack\libraries.h
+1666186563 c:\cbprojects\processor\cpu\cpu.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<TXlib.h>
+	"../stack_functions/libraries.h"
+	"../errors.h"
+	"../cmd.h"
+
+1665065772 c:\cbprojects\processor\stack_functions\libraries.h
 	<stdio.h>
 	<stdlib.h>
 	<TXlib.h>
 	"config.h"
 	"stack_functions.h"
 
-1664915847 c:\cbprojects\stack\config.h
+1664915847 c:\cbprojects\processor\stack_functions\config.h
 
-1665073600 c:\cbprojects\stack\stack_functions.h
+1665073600 c:\cbprojects\processor\stack_functions\stack_functions.h
 
-1665684975 source:c:\cbprojects\stack\pop_push_functions.cpp
-	"libraries.h"
+1666112446 c:\cbprojects\processor\errors.h
 
-1664920381 source:c:\cbprojects\stack\verification_functions.cpp
-	"libraries.h"
+1666185966 c:\cbprojects\processor\cmd.h
+
+1666186714 source:c:\cbprojects\processor\cpu\io.cpp
+	"cpu.h"
+
+1666186802 source:c:\cbprojects\processor\cpu\main.cpp
+	"cpu.h"
 

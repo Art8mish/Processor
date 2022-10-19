@@ -31,17 +31,19 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../../Stack/construct_functions.cpp" />
-		<Unit filename="../../Stack/pop_push_functions.cpp" />
-		<Unit filename="../../Stack/verification_functions.cpp" />
+		<Unit filename="../stack_functions/construct_functions.cpp" />
+		<Unit filename="../stack_functions/pop_push_functions.cpp" />
+		<Unit filename="../stack_functions/verification_functions.cpp" />
 		<Unit filename="cpu.h" />
 		<Unit filename="cpu_functions.cpp" />
+		<Unit filename="cpu_log_file.txt" />
 		<Unit filename="io.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

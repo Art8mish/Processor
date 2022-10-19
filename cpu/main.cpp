@@ -31,11 +31,10 @@ int main()
 
     ERROR_CHECK(perform_code_err_check, PERFORM_CODE_ERROR);
 
-    StackDtor(&field->stk);
-    StackDtor(&field->ret_adr);
+    StackDtor(&field.stk);
+    StackDtor(&field.ret_adr);
 
-    free(field->code_buffer);
-    free(field->Ram);
+    free(field.code_buffer);
 
     CpuFieldDtor(&field);
 

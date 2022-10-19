@@ -8,20 +8,18 @@ CFLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equ
 
 all : standart_compilation.exe
 
-standart_compilation.exe : main.o
+standart_compilation.exe : main.o cpu_functions.o io.o
 	$(CC) $(CFLAGS) main.o -o standart_compilation.exe
 
-main.o : main.cpp
-	$(CC) $(CFLAGS) -c main.cpp
+main.o : C:\CBProjects\Processor\cpu\main.cpp
+	$(CC) $(CFLAGS) -c C:\CBProjects\Processor\cpu\main.cpp
 
-#pop_push_functions.o : pop_push_functions.cpp
-#	$(CC) $(CFLAGS) -c pop_push_functions.cpp
+cpu_functions.o : C:\CBProjects\Processor\cpu\cpu_functions.cpp
+	$(CC) $(CFLAGS) -c C:\CBProjects\Processor\cpu\cpu_functions.cpp
 
-#verification_functions.o : verification_functions.cpp
-#	$(CC) $(CFLAGS) -c verification_functions.cpp
+io.o : C:\CBProjects\Processor\cpu\io.cpp
+	$(CC) $(CFLAGS) -c C:\CBProjects\Processor\cpu\io.cpp
 
-#construct_functions.o : construct_functions.cpp
-#	$(CC) $(CFLAGS) -c construct_functions.cpp
 
 clean:
 	rm *.o standart_compilation.exe

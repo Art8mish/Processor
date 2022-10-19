@@ -6,7 +6,7 @@ DEF_CMD(HLT, 0, 0,
 
 DEF_CMD(PUSH, 1 << 0, 1,
 {
-    StackPush(&field->stk, arg_val);
+    StackPush(&field->stk, *ptr_arg_val);
 },  FILE_ERROR_CHECK(false, EMPTY_ERROR, log_file);)
 
 DEF_CMD(POP,  1 << 1, 2,

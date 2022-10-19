@@ -60,12 +60,12 @@
 
 1665073600 c:\codeblocksprojects\stack\stack_functions.h
 
-1666182470 source:c:\cbprojects\processor\assembler\asm_functions.cpp
+1666187242 source:c:\cbprojects\processor\assembler\asm_functions.cpp
 	"include/asm.h"
 	"../cmd.h"
 	"../cmd.h"
 
-1666182515 c:\cbprojects\processor\assembler\include\asm.h
+1666187272 c:\cbprojects\processor\assembler\include\asm.h
 	<stdlib.h>
 	<stdio.h>
 	<TXlib.h>
@@ -84,10 +84,13 @@
 
 1665073600 c:\cbprojects\stack\stack_functions.h
 
-1666182720 c:\cbprojects\processor\cmd.h
+1666185966 c:\cbprojects\processor\cmd.h
 
 1666108475 source:c:\cbprojects\processor\assembler\main.cpp
 	"include/asm.h"
 
 1666112446 c:\cbprojects\processor\errors.h
+
+1666187180 source:c:\cbprojects\processor\assembler\asm_io.cpp
+	"include/asm.h"
 

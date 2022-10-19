@@ -62,9 +62,11 @@ const size_t REGISTER_LENGTH = 3;
 
 const int   LABEL_VALUE_POISON  = -1;
 
-const char * const  INPUT_FILE_NAME = "../io/user_file.txt";
+static const char * const SIGNATURE = "DP";
+
+//const char * const  INPUT_FILE_NAME = "../io/user_file.txt";
 //const char * const  INPUT_FILE_NAME = "../io/krujochek.txt";
-//const char * const  INPUT_FILE_NAME = "../io/quadratic.txt";
+const char * const  INPUT_FILE_NAME = "../io/quadratic.txt";
 //const char * const  INPUT_FILE_NAME = "../io/factorial.txt";
 
 const char * const OUTPUT_FILE_NAME = "../io/asm_output";
