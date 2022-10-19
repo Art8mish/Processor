@@ -31,6 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../onegin_functions/src/io.cpp" />
 		<Unit filename="Makefile" />
 		<Unit filename="asm_functions.cpp" />
 		<Unit filename="asm_io.cpp" />

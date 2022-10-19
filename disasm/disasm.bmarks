@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="main.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="3496" topLine="0" />
+		<BrowseMarks positions="2,23,40,108,110,418,756,1342,2361,3170,3435,3537,3740,3923" />
+	</File>
 	<File name="..\io\disasm_out.txt" open="0" top="0" tabpos="3">
 		<Cursor position="0" topLine="0" />
 		<Book_Marks positions="63" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="3496" topLine="0" />
-		<BrowseMarks positions="2,23,40,108,110,418,756,1342,2361,3170,3435,3537,3740,3923" />
-	</File>
-	<File name="disasm.h" open="1" top="0" tabpos="2">
+	<File name="disasm.h" open="0" top="0" tabpos="2">
 		<Cursor position="2210" topLine="54" />
 		<BrowseMarks positions="0,1869,1995,2213,2395,2397,2418,2450,2514,2610,2642,2674,2832,3050,3116,3162" />
-	</File>
-	<File name="..\cpu\io.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
 	</File>
 </BrowseTracker_layout_file>

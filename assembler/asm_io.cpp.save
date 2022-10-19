@@ -49,13 +49,13 @@ int ReadUserFile(const char *user_file_name, struct AsmField *field)
     */
 
     field->onegin_field = CreateWorkingField(INPUT_FILE_NAME);
-    ERROR_CHECK(field->onegin_field == NULL, USER_FILE_OPENING_ERROR);
-
+    READFILE_ERROR_CHECK(input_file == NULL, USER_FILE_OPENING_ERROR, input_file);
+    
     field->char_buffer = field->onegin_field->chars_buffer;
     /*
     field->char_buffer = (char*) calloc(field->chars_count + 1, sizeof(char));
     READFILE_ERROR_CHECK(field->char_buffer == NULL, CALLOC_ERROR, input_file);
-
+    
     fread(field->char_buffer, sizeof(char), field->chars_count, input_file);
 
     int fread_error_check = ferror(input_file);
@@ -68,12 +68,10 @@ int ReadUserFile(const char *user_file_name, struct AsmField *field)
     int countlines_err = CountLines(field, &(field->lines_count));
 
     ERROR_CHECK(countlines_err, COUNTLINES_ERROR);
-
+    
     field->code_buffer = (int*) calloc(field->lines_count * MAX_LINE_SIZE, sizeof(int));
+    field->code_buffer += HEADER_SIZE;
     */
-
-    field->code_buffer = (int*) calloc(field->onegin_field->lines_amount * MAX_LINE_SIZE, sizeof(int));
-
     return SUCCESS;
 }
 

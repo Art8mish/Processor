@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <TXlib.h>
 #include <sys/stat.h>
+#include "../../onegin_functions/include/onegin_libraries.h"
+#define ONEGIN_LIB_INCLUDED
+
+
 #include "../../errors.h"
 
 #ifdef SOFT_ASSERT
@@ -64,9 +68,9 @@ const int   LABEL_VALUE_POISON  = -1;
 
 static const char * const SIGNATURE = "DP";
 
-//const char * const  INPUT_FILE_NAME = "../io/user_file.txt";
+const char * const  INPUT_FILE_NAME = "../io/user_file.txt";
 //const char * const  INPUT_FILE_NAME = "../io/krujochek.txt";
-const char * const  INPUT_FILE_NAME = "../io/quadratic.txt";
+//const char * const  INPUT_FILE_NAME = "../io/quadratic.txt";
 //const char * const  INPUT_FILE_NAME = "../io/factorial.txt";
 
 const char * const OUTPUT_FILE_NAME = "../io/asm_output";
@@ -105,6 +109,7 @@ struct AsmField
     int     pc = 0;
 
     struct Label labels[LABELS_AMOUNT] = {{}};
+    struct WorkingField *onegin_field  = NULL;
 };
 
 int ProccessMainArgument(int argc, char *argv[], const char **input_file_name, const char **output_file_name);

@@ -14,9 +14,19 @@ enum FunctionError
     REALLOC_ERROR             = 6,
     HASH_CALC_ERROR           = 7,
     CTORING_ALIVE_STACK       = 8,
-    OPENING_FILE_ERROR        = 9,
+
     CLOSING_FILE_ERROR        = 10
 };
+
+#ifndef ONEGIN_LIB_INCLUDED
+
+enum OneginError
+{
+    STAT_ERROR         = 16,
+    OPENING_FILE_ERROR = 9,
+}
+
+#endif
 
 #endif
 
@@ -27,7 +37,6 @@ enum AsmError
     OUTPUT_ASM_FILE_OPENING_ERROR = 13,
     OUTPUT_ASM_FILE_CLOSING_ERROR = 14,
                       FREAD_ERROR = 15,
-                       STAT_ERROR = 16,
                   COUNTSIZE_ERROR = 17,
                  COUNTLINES_ERROR = 18,
              UNKNOWN_COMAND_ERROR = 19,

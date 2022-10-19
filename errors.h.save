@@ -18,6 +18,12 @@ enum FunctionError
     CLOSING_FILE_ERROR        = 10
 };
 
+enum OneginError
+{
+    OPENING_FILE_ERROR = 9,
+            STAT_ERROR = 16,
+}
+
 #endif
 
 enum AsmError
@@ -27,7 +33,6 @@ enum AsmError
     OUTPUT_ASM_FILE_OPENING_ERROR = 13,
     OUTPUT_ASM_FILE_CLOSING_ERROR = 14,
                       FREAD_ERROR = 15,
-                       STAT_ERROR = 16,
                   COUNTSIZE_ERROR = 17,
                  COUNTLINES_ERROR = 18,
              UNKNOWN_COMAND_ERROR = 19,
@@ -45,6 +50,8 @@ enum AsmError
              READ_USER_FILE_ERROR = 31,
          ASSEMBLY_USER_CODE_ERROR = 32,
                WRITE_HEADER_ERROR = 33,
+                 READ_DIGIT_ERROR = 34,
+            FIND_FREE_LABEL_ERROR = 35,
 };
 
 enum CpuError

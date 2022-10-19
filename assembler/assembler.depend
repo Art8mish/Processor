@@ -65,11 +65,12 @@
 	"../cmd.h"
 	"../cmd.h"
 
-1666187272 c:\cbprojects\processor\assembler\include\asm.h
+1666189349 c:\cbprojects\processor\assembler\include\asm.h
 	<stdlib.h>
 	<stdio.h>
 	<TXlib.h>
 	<sys/stat.h>
+	"../../onegin_functions/include/onegin_libraries.h"
 	"../../errors.h"
 	"../../cmd.h"
 
@@ -89,8 +90,26 @@
 1666108475 source:c:\cbprojects\processor\assembler\main.cpp
 	"include/asm.h"
 
-1666112446 c:\cbprojects\processor\errors.h
+1666189128 c:\cbprojects\processor\errors.h
 
-1666187180 source:c:\cbprojects\processor\assembler\asm_io.cpp
+1666188848 source:c:\cbprojects\processor\assembler\asm_io.cpp
 	"include/asm.h"
+
+1664919363 c:\cbprojects\processor\onegin_functions\onegin_libraries.h
+	<stdlib.h>
+	<TXlib.h>
+	<sys/stat.h>
+	"sorting_func.h"
+	"onegin_io.h"
+
+1664919363 c:\cbprojects\processor\onegin_functions\include\onegin_libraries.h
+	<stdlib.h>
+	<TXlib.h>
+	<sys/stat.h>
+	"sorting_func.h"
+	"onegin_io.h"
+
+1663698397 c:\cbprojects\processor\onegin_functions\include\sorting_func.h
+
+1664920028 c:\cbprojects\processor\onegin_functions\include\onegin_io.h
 
