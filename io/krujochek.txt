@@ -1,4 +1,4 @@
-push 45
+push 30
 pop rax
 push 0
 pop rbx

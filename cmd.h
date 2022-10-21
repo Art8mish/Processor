@@ -1,4 +1,9 @@
 
+#ifndef DEF_CMD
+#define DEF_CMD(cmd, num, arg, cpu_code, err)
+#endif
+
+
 DEF_CMD(HLT, 0, 0,
 {
     return 0;
@@ -9,7 +14,7 @@ DEF_CMD(PUSH, 1 << 0, 1,
     StackPush(&field->stk, *ptr_arg_val);
 },  FILE_ERROR_CHECK(false, EMPTY_ERROR, log_file);)
 
-DEF_CMD(POP,  1 << 1, 2,
+DEF_CMD(POP,  1 << 1, 1,
 {
     //txSleep(0.5);
     StackPop (&field->stk, &rhs);
@@ -18,7 +23,7 @@ DEF_CMD(POP,  1 << 1, 2,
 
 DEF_CMD(JMP,  1 << 2, 1,
 {
-    field->pc = arg_val - 1;
+    field->pc = *ptr_arg_val - 1;
 },  FILE_ERROR_CHECK(false, EMPTY_ERROR, log_file);)
 
 DEF_CMD(JB,   1 << 3, 1,
@@ -26,7 +31,7 @@ DEF_CMD(JB,   1 << 3, 1,
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
     if (lhs < rhs)
-        field->pc = arg_val - 1;
+        field->pc = *ptr_arg_val - 1;
 },  FILE_ERROR_CHECK(field->stk.data_size < 2, INCORRECT_USER_CODE_ERROR, log_file);)
 
 DEF_CMD(JBE,  1 << 4, 1,
@@ -34,7 +39,7 @@ DEF_CMD(JBE,  1 << 4, 1,
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
     if (lhs <= rhs)
-        field->pc = arg_val - 1;
+        field->pc = *ptr_arg_val - 1;
 },  FILE_ERROR_CHECK(field->stk.data_size < 2, INCORRECT_USER_CODE_ERROR, log_file);)
 
 DEF_CMD(JA,   1 << 5, 1,
@@ -42,7 +47,7 @@ DEF_CMD(JA,   1 << 5, 1,
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
     if (lhs > rhs)
-        field->pc = arg_val - 1;
+        field->pc = *ptr_arg_val - 1;
 },  FILE_ERROR_CHECK(field->stk.data_size < 2, INCORRECT_USER_CODE_ERROR, log_file);)
 
 DEF_CMD(JAE,  1 << 6, 1,
@@ -50,7 +55,7 @@ DEF_CMD(JAE,  1 << 6, 1,
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
     if (lhs >= rhs)
-        field->pc = arg_val - 1;
+        field->pc = *ptr_arg_val - 1;
 },  FILE_ERROR_CHECK(field->stk.data_size < 2, INCORRECT_USER_CODE_ERROR, log_file);)
 
 DEF_CMD(JE,   1 << 7, 1,
@@ -58,7 +63,7 @@ DEF_CMD(JE,   1 << 7, 1,
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
     if (lhs == rhs)
-        field->pc = arg_val - 1;
+        field->pc = *ptr_arg_val - 1;
 },  FILE_ERROR_CHECK(field->stk.data_size < 2, INCORRECT_USER_CODE_ERROR, log_file);)
 
 DEF_CMD(JNE,  1 << 8, 1,
@@ -66,13 +71,13 @@ DEF_CMD(JNE,  1 << 8, 1,
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
     if (lhs != rhs)
-        field->pc = arg_val - 1;
+        field->pc = *ptr_arg_val - 1;
 },  FILE_ERROR_CHECK(field->stk.data_size < 2, INCORRECT_USER_CODE_ERROR, log_file);)
 
 DEF_CMD(CALL, 1 << 9, 1,
 {
     StackPush(&field->ret_adr, field->pc + 1);
-    field->pc = arg_val - 1;
+    field->pc = *ptr_arg_val - 1;
 },  FILE_ERROR_CHECK(false, EMPTY_ERROR, log_file);)
 
 DEF_CMD(ADD, 3, 0,

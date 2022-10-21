@@ -1,5 +1,7 @@
 CC = g++
 
+TARGET = processor
+
 CFLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations \
          -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual	   \
          -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op                 \
@@ -7,13 +9,13 @@ CFLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equ
          -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE				   \
 
 
-all : standart_compilation.exe
+all : $(TARGET).exe
 
-standart_compilation.exe : processor.o
-	$(CC) $(CFLAGS) processor.o -o standart_compilation.exe
+$(TARGET).exe : processor.o
+	$(CC) $(CFLAGS) processor.o -o $(TARGET).exe
 
 processor.o : processor.cpp
 	$(CC) $(CFLAGS) -c processor.cpp
 
 clean:
-	rm *.o standart_compilation.exe
+	rm $(TARGET).exe *.o

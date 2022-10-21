@@ -3,7 +3,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <TXlib.h>
+#include <string.h>
+#include <ctype.h>
+//#include <TXlib.h>
 #include <sys/stat.h>
 #include "../../onegin_functions/include/onegin_libraries.h"
 #define ONEGIN_LIB_INCLUDED
@@ -54,6 +56,27 @@
                     return rtrn;                            \
                 }                                           \
             } while(false)
+
+
+#define PRINT_ARG()                                                 \
+    if (*code & MEMORY_CODE)                                        \
+        printf("RAM : ");                                           \
+    if ((*code & REGISTER_CODE) && (*code & IMMEDIATE_CONST_CODE))  \
+    {                                                               \
+        printf("%d (num) & %d (reg)", *(code+1), *(code+2));        \
+        two_arg = true;                                             \
+    }                                                               \
+    else if (*code & REGISTER_CODE)                                 \
+        printf("%d (reg)", *(code + 1));                            \
+    else if (*code & IMMEDIATE_CONST_CODE)                          \
+        printf("%d (num)", *(code + 1));                            \
+    else                                                            \
+        printf("ERROR/label : %d", *(code+1));                      \
+    printf("\n");                                                   \
+                                                                    \
+    if (two_arg)                                                    \
+        code++;                                                     \
+    code++
 
 
 const size_t ASM_VERSION     = 1;

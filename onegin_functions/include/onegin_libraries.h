@@ -1,9 +1,10 @@
 #ifndef LIBRARIES_H_INCLUDED
 #define LIBRARIES_H_INCLUDED
 
-
+#include <stdio.h>
 #include <stdlib.h>
-#include <TXlib.h>
+//#include <TXlib.h>
+#include <string.h>
 #include <sys/stat.h>
 #include "sorting_func.h"
 #include "onegin_io.h"

@@ -1,22 +1,37 @@
 CC = g++
 
+TARGET = assembler
+
 CFLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations \
-         -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual	   \
-         -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op                 \
-         -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192         \
-         -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE				   \
+		 -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast -qual 	  \
+		 -Wconversion -Wctor -dtor -privacy -Wempty -body -Wformat -security -Wformat -Wignored -qualifiers -Wlogical -op 			  \
+		 -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 		  \
+		 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE 						  \
 
+PREF_ASM_SRC = ./src/
+PREF_ONG_SRC = ./../onegin_functions/
 
-all : standart_compilation.exe
+PREF_OBJ = ./obj/
 
-standart_compilation.exe : main.o asm_functions.o
-	$(CC) $(CFLAGS) main.o asm_functions.o -o standart_compilation.exe
+ASM_SRC = $(wildcard $(PREF_ASM_SRC)*.cpp)
+ONG_SRC = $(wildcard $(PREF_ONG_SRC)*.cpp)
 
-main.o : main.cpp
-	$(CC) $(CFLAGS) -c main.cpp
+ASM_OBJ = $(patsubst $(PREF_ASM_SRC)%.cpp, $(PREF_OBJ)%.o, $(ASM_SRC))
+ONG_OBJ = $(patsubst $(PREF_ONG_SRC)%.cpp, $(PREF_OBJ)%.o, $(ONG_SRC))
 
-asm_functions.o : asm_functions.cpp
-	$(CC) $(CFLAGS) -c asm_functions.cpp
+OBJ = $(ASM_OBJ) $(ONG_OBJ)
+#SRC = $(CPU_SRC) $(STK_SRC)
 
-clean:
-	rm *.o standart_compilation.exe
+all : $(TARGET).exe
+
+$(TARGET).exe : $(OBJ)
+	$(CC) $(OBJ) -o $(TARGET).exe
+
+$(PREF_OBJ)%.o : $(PREF_ASM_SRC)%.cpp
+	$(CC) -c $< -o $@
+
+$(PREF_OBJ)%.o : $(PREF_ONG_SRC)%.cpp
+	$(CC) -c $< -o $@
+
+clean :
+	rm $(TARGET).exe $(PREF_OBJ)*.o

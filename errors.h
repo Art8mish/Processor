@@ -24,7 +24,7 @@ enum OneginError
 {
     STAT_ERROR         = 16,
     OPENING_FILE_ERROR = 9,
-}
+};
 
 #endif
 

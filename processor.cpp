@@ -3,6 +3,6 @@
 
 int main()
 {
-    system("start assembler/bin/Debug/assembler.exe");
-    system("start cpu/bin/Debug/cpu.exe");
+    system("start assembler/assembler.exe");
+    system("start cpu/cpu.exe");
 }
