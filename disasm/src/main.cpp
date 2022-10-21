@@ -15,7 +15,7 @@ int main()
 
     DisAsmFieldDtor(&field);
 
-    printf("SUCCESFUL END.\n");
+    printf("\nSUCCESFUL END.\n");
 
     return SUCCESS;
 }

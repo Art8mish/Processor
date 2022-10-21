@@ -1,6 +1,5 @@
 #include "../include/disasm.h"
 
-
 int ReadCode(const char *code_file_name, struct DisAsmField *field)
 {
     ERROR_CHECK(code_file_name == NULL, PTR_NULL);
@@ -21,12 +20,14 @@ int ReadCode(const char *code_file_name, struct DisAsmField *field)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int ReadHeader(FILE *input_file, struct DisAsmField *field)
 {
     ERROR_CHECK(input_file == NULL, PTR_NULL);
     ERROR_CHECK(     field == NULL, PTR_NULL);
 
-    int  header[HEADER_SIZE] = {};
+    int header[HEADER_SIZE] = {};
 
     fread(header, sizeof(int), HEADER_SIZE, input_file);
     int fread_err_check = ferror(input_file);
@@ -34,7 +35,7 @@ int ReadHeader(FILE *input_file, struct DisAsmField *field)
 
     ERROR_CHECK(strncmp((char*)header, DISASM_SIGNATURE, 2), WRONG_SIGNATURE_ERROR);
 
-    int version  = header[1];
+    int version = header[1];
     ERROR_CHECK(version != DISASM_VERSION, WRONG_VERSION_ERROR);
 
     field->op_count = header[2];

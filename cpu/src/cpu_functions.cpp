@@ -11,19 +11,22 @@ int CpuFieldCtor(struct CpuField *field)
     field->op_count    = 0;
     field->pc          = 0;
 
-    STACKCTOR(&field->stk, 10);      //initialize stacks
+    //initialize stacks
+    STACKCTOR(&field->stk, 10);      
     STACKCTOR(&field->ret_adr, 10);
 
+    //initialize Regs[]
     for (unsigned int i = 0; i < REGS_AMOUNT; i++)
         field->Regs[i] = 0;
-
 
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int CpuFieldDtor(struct CpuField *field)
 {
-    ERROR_CHECK(field              == NULL, PTR_NULL);
+    ERROR_CHECK(field == NULL, PTR_NULL);
 
     StackDtor(&field->stk);
     StackDtor(&field->ret_adr);
@@ -34,6 +37,7 @@ int CpuFieldDtor(struct CpuField *field)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
 
 int ExecuteCode(struct CpuField *field)
 {
@@ -72,6 +76,8 @@ int ExecuteCode(struct CpuField *field)
 
     return SUCCESS;
 }
+
+//-------------------------------------------------------------------------------------------------------------------------
 
 int GetPtrArg(struct CpuField *field, int **val)
 {
@@ -137,6 +143,7 @@ int GetArg(struct CpuField *field, int *value)
 
     return SUCCESS;
 }*/
+//--------------------------------------------------------------------------------------------------------------
 
 int DumpProcessor(struct CpuField *field)
 {
@@ -172,6 +179,8 @@ int DumpProcessor(struct CpuField *field)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int DumpCommands(struct CpuField *field, FILE *dump_file)
 {
     ERROR_CHECK(field     == NULL, PTR_NULL);
@@ -189,6 +198,8 @@ int DumpCommands(struct CpuField *field, FILE *dump_file)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int DumpPc(struct CpuField *field, FILE *dump_file)
 {
     ERROR_CHECK(field     == NULL, PTR_NULL);
@@ -204,6 +215,8 @@ int DumpPc(struct CpuField *field, FILE *dump_file)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int DumpStack(struct CpuField *field, FILE *dump_file)
 {
     ERROR_CHECK(field     == NULL, PTR_NULL);
@@ -218,6 +231,8 @@ int DumpStack(struct CpuField *field, FILE *dump_file)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int DumpRegs(struct CpuField *field, FILE *dump_file)
 {
     ERROR_CHECK(field     == NULL, PTR_NULL);
@@ -231,6 +246,8 @@ int DumpRegs(struct CpuField *field, FILE *dump_file)
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int DumpRam(struct CpuField *field, FILE *dump_file)
 {

@@ -82,6 +82,8 @@ int DumpCode(struct AsmField *field)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int DumpField(struct AsmField *field)
 {
     ERROR_CHECK(field == NULL, PTR_NULL);
@@ -90,13 +92,8 @@ int DumpField(struct AsmField *field)
     ERROR_CHECK(dump_file == NULL, OPENING_FILE_ERROR);
 
     fprintf(dump_file, "\nStruct Asm : char_buffer[%p], chars_count %d, code_buffer[%p], lines_count %d\n",
-            field->char_buffer, field->chars_count, 
-            field->code_buffer, field->lines_count);
-    /*
-    fprintf(dump_file, "\n");
-    fprintf(dump_file, "%s", field->char_buffer);
-    fprintf(dump_file, "\n");
-    */
+                        field->char_buffer, field->chars_count, 
+                        field->code_buffer, field->lines_count);
 
     fclose(dump_file);
 

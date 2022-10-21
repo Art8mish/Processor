@@ -12,7 +12,6 @@
             while(isdigit(**buf)) {(*buf)++;}
 
 
-
 int AssemblyUserCode(struct AsmField *field)
 {
     ERROR_CHECK(field == NULL, PTR_NULL);
@@ -41,14 +40,13 @@ int AssemblyUserCode(struct AsmField *field)
         sscanf(buf, "%s", cmd);
         buf += strlen(cmd) + 1;
 
-        //find label
+        //find label symb
         is_label = strchr(cmd, ':');
 
         //process label
         if (is_label)
         {
             int process_label_err = ProcessLabel(field, cmd);
-
             ERROR_CHECK(process_label_err, PROCESS_LABEL_ERROR);
         }
 
@@ -76,6 +74,8 @@ int AssemblyUserCode(struct AsmField *field)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int ProcessLabel(struct AsmField *field, char *cmd)
 {
     ERROR_CHECK(field == NULL, PTR_NULL);
@@ -85,7 +85,6 @@ int ProcessLabel(struct AsmField *field, char *cmd)
     int arg     = 0;
 
     ERROR_CHECK(cmd[cmd_len - 1] != ':', SYNTAX_ERROR);
-
     cmd[cmd_len - 1] = '\0';
 
     FindLabelValue(field, cmd, &arg);
@@ -110,6 +109,8 @@ int ProcessLabel(struct AsmField *field, char *cmd)
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int ReadArg(struct AsmField *field, char **buf)
 {
@@ -145,11 +146,9 @@ int ReadArg(struct AsmField *field, char **buf)
 
     ERROR_CHECK(label && is_plus, SYNTAX_ERROR);
 
-
     if (is_plus)
     {
         int read_plus_construct_err = ReadPlusConstruction(field, buf);
-
         ERROR_CHECK(read_plus_construct_err, READ_PLUS_CONSTRUCT_ERROR);
     }
 
@@ -157,7 +156,6 @@ int ReadArg(struct AsmField *field, char **buf)
     else if (label)
     {
         int read_label_err = ReadLabel(field, buf);
-
         ERROR_CHECK(read_label_err, READ_LABEL_ERROR);
     }
 
@@ -171,7 +169,7 @@ int ReadArg(struct AsmField *field, char **buf)
 
         field->code_buffer[++field->pc] = arg;
 
-        (*buf) += REGISTER_LENGTH; //register_length
+        (*buf) += REGISTER_LENGTH;
     }
 
     //read digit
@@ -192,6 +190,8 @@ int ReadArg(struct AsmField *field, char **buf)
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int ReadDigit(struct AsmField *field, char **buf)
 {
@@ -220,6 +220,8 @@ int ReadDigit(struct AsmField *field, char **buf)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int ReadPlusConstruction(struct AsmField *field, char **buf)
 {
     ERROR_CHECK(buf == NULL, PTR_NULL);
@@ -234,7 +236,6 @@ int ReadPlusConstruction(struct AsmField *field, char **buf)
     SKIP_DIGIT();
 
     ERROR_CHECK(**buf != '+', SYNTAX_ERROR);
-
     (*buf)++;
 
     int isreg_err = IsReg(*buf, &arg);
@@ -246,6 +247,8 @@ int ReadPlusConstruction(struct AsmField *field, char **buf)
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int IsReg(char *buf, int *arg)
 {
@@ -259,6 +262,8 @@ int IsReg(char *buf, int *arg)
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int ReadLabel(struct AsmField *field, char **buf)
 {
@@ -283,9 +288,10 @@ int ReadLabel(struct AsmField *field, char **buf)
     field->code_buffer[++(field->pc)] = arg;
     (*buf) += strlen(label_name) + 1;
 
-
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int FindLabelValue(struct AsmField *field, char *label_name, int *arg)
 {
@@ -295,12 +301,11 @@ int FindLabelValue(struct AsmField *field, char *label_name, int *arg)
 
     int label_num = 0;
 
-    for (int i = 0; i < (int)LABELS_AMOUNT; i++, label_num = i)
+    for (int index = 0; index < (int)LABELS_AMOUNT; index++, label_num = index)
     {
         if (strcmp(field->labels[label_num].name, label_name) == 0)
         {
             *arg = field->labels[label_num].value;
-
             break;
         }
     }
@@ -311,6 +316,7 @@ int FindLabelValue(struct AsmField *field, char *label_name, int *arg)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
 
 int AsmFieldCtor(struct AsmField *field)
 {
@@ -332,6 +338,8 @@ int AsmFieldCtor(struct AsmField *field)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int InitializeLabels(struct AsmField *field)
 {
     const char *label_poison_name = "";
@@ -345,6 +353,8 @@ int InitializeLabels(struct AsmField *field)
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int AsmFieldDtor(struct AsmField *field)
 {

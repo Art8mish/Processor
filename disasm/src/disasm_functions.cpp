@@ -14,7 +14,6 @@ int DisAsmCode(struct DisAsmField *field)
     {
         switch(code[field->pc] & 0xFFFF)
         {
-
             #define DEF_CMD(name, num, arg, cpu_code)                      \
                         case name##_CODE : fprintf(log_file, #name);       \
                                            if (arg)                        \
@@ -43,6 +42,8 @@ int DisAsmCode(struct DisAsmField *field)
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int PrintArg(struct DisAsmField *field, FILE *out_file)
 {
@@ -86,6 +87,8 @@ int PrintArg(struct DisAsmField *field, FILE *out_file)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
 int DisAsmFieldCtor(struct DisAsmField *field)
 {
     ERROR_CHECK(field == NULL, NULL_PTR_ERROR);
@@ -98,6 +101,8 @@ int DisAsmFieldCtor(struct DisAsmField *field)
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int DisAsmFieldDtor(struct DisAsmField *field)
 {

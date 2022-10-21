@@ -7,7 +7,6 @@ int ProccessMainArgument(int argc, char *argv[], const char **input_file_name, c
     ERROR_CHECK( input_file_name == NULL, PTR_NULL);
     ERROR_CHECK(output_file_name == NULL, PTR_NULL);
 
-
     if (argc == 1)
     {
          *input_file_name =  INPUT_FILE_NAME;
@@ -27,12 +26,12 @@ int ProccessMainArgument(int argc, char *argv[], const char **input_file_name, c
     }
 
     else
-    {
         return TOO_MANY_MAIN_ARGS_ERROR;
-    }
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int ReadUserFile(const char *user_file_name, struct AsmField *field)
 {
@@ -52,16 +51,17 @@ int ReadUserFile(const char *user_file_name, struct AsmField *field)
     return SUCCESS;
 }
 
+//--------------------------------------------------------------------------------------------------------------
+
+/*
 int CountSize(const char *file_name, size_t *file_size)
 {
     ERROR_CHECK(file_name == NULL, PTR_NULL);
-
 
     FILE *file = fopen(file_name, "r");
     READFILE_ERROR_CHECK(file == NULL, OPENING_FILE_ERROR, file);
 
     fseek(file, 0, SEEK_END);
-
     size_t size_value = ftell(file);
 
     fclose (file);
@@ -78,7 +78,6 @@ int CountLines(struct AsmField *field, size_t *value)
     size_t lines_count = 0;
     char *ch = field->char_buffer;
 
-
     for (int i = 0; i < (int)field->chars_count; i++)
     {
         if (*ch == EOF)
@@ -93,8 +92,7 @@ int CountLines(struct AsmField *field, size_t *value)
     *value = lines_count + 1;
 
     return SUCCESS;
-}
-
+}*/
 
 int WriteHeader(struct AsmField *field, FILE *output_file)
 {
@@ -105,14 +103,16 @@ int WriteHeader(struct AsmField *field, FILE *output_file)
     *((char*)header)     = SIGNATURE[0];
     *((char*)header + 1) = SIGNATURE[1];
 
-             header[1]   = ASM_VERSION;
-             header[2]   = field->pc;
+    header[1] = ASM_VERSION;
+    header[2] = field->pc;
 
     int fwrite_elem = fwrite(header, sizeof(int), HEADER_SIZE, output_file);
     ERROR_CHECK(fwrite_elem != HEADER_SIZE, FWRITE_ERROR);
 
     return SUCCESS;
 }
+
+//--------------------------------------------------------------------------------------------------------------
 
 int WriteCode(struct AsmField *field, const char *output_file_name)
 {
@@ -133,5 +133,3 @@ int WriteCode(struct AsmField *field, const char *output_file_name)
 
     return SUCCESS;
 }
-
-

@@ -66,7 +66,7 @@ const size_t MAX_LINE_SIZE   = 3;
 const size_t LABELS_AMOUNT   = 10;
 const size_t REGISTER_LENGTH = 3;
 
-const int   LABEL_VALUE_POISON  = -1;
+const int LABEL_VALUE_POISON = -1;
 
 static const char * const SIGNATURE = "DP";
 
@@ -77,7 +77,7 @@ const char * const  INPUT_FILE_NAME = "../io/user_file.txt";
 
 const char * const OUTPUT_FILE_NAME = "../io/asm_output";
 
-const char * const ASM_DUMP_FILE = "../io/asm_dump.txt";
+const char * const ASM_DUMP_FILE    = "../io/asm_dump.txt";
 
 
 #define DEF_CMD(name, num, arg, code) \

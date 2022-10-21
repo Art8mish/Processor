@@ -73,6 +73,7 @@ const size_t HEADER_SIZE      = 3;
 const char * const SIGNATURE  = "DP";
 
 static const char * const LOG_FILE_NAME = "../io/cpu_out.txt";
+static const char * const CODE_INPUT_FILE   = "../io/asm_output";
 
 #define DEF_CMD(name, num, arg, code) \
             name##_CODE = num,
@@ -101,8 +102,6 @@ struct CpuField
     int Regs[REGS_AMOUNT] = {0, 0, 0, 0, 0};
     int  Ram[RAM_SIZE]    = {};
 };
-
-
 
 int CpuFieldCtor(struct CpuField *field);
 int CpuFieldDtor(struct CpuField *field);
