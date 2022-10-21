@@ -82,3 +82,275 @@ labels[6].name = , labels[6].value = -1
 labels[7].name = , labels[7].value = -1
 labels[8].name = , labels[8].value = -1
 labels[9].name = , labels[9].value = -1
+
+Struct Asm : char_buffer[01002490], chars_count 182, code_buffer[010028F0], lines_count 25
+
+
+DUMP
+
+Code: 
+10 65537 1 65537 2 3 10 131074 1 10 66048 -1 65540 -1 65537 5 131073 1 3 131074 1 10 0 10 65537 5 458754 4 1 10 65537 5 10 14 
+
+   10     DUMP
+10001(0x) PUSH : 1 (num)
+10001(0x) PUSH : 2 (num)
+    3     ADD 
+   10     DUMP
+20002(0x) POP  : 1 (reg)
+   10     DUMP
+10200(0x) CALL : -1 (num)
+10004(0x) JMP  : -1 (num)
+10001(0x) PUSH : 5 (num)
+20001(0x) PUSH : 1 (reg)
+    3     ADD 
+20002(0x) POP  : 1 (reg)
+   10     DUMP
+    0     HLT 
+   10     DUMP
+10001(0x) PUSH : 5 (num)
+70002(0x) POP  : RAM : 4 (num) & 1 (reg)
+   10     DUMP
+10001(0x) PUSH : 5 (num)
+   10     DUMP
+   14     RET 
+
+labels: 
+labels[0].name = end, labels[0].value = 14
+labels[1].name = 48, labels[1].value = 23
+labels[2].name = , labels[2].value = -1
+labels[3].name = , labels[3].value = -1
+labels[4].name = , labels[4].value = -1
+labels[5].name = , labels[5].value = -1
+labels[6].name = , labels[6].value = -1
+labels[7].name = , labels[7].value = -1
+labels[8].name = , labels[8].value = -1
+labels[9].name = , labels[9].value = -1
+
+
+DUMP
+
+Code: 
+10 65537 1 65537 2 3 10 131074 1 10 66048 23 65540 14 65537 5 131073 1 3 131074 1 10 0 10 65537 5 458754 4 1 10 65537 5 10 14 
+
+   10     DUMP
+10001(0x) PUSH : 1 (num)
+10001(0x) PUSH : 2 (num)
+    3     ADD 
+   10     DUMP
+20002(0x) POP  : 1 (reg)
+   10     DUMP
+10200(0x) CALL : 23 (num)
+10004(0x) JMP  : 14 (num)
+10001(0x) PUSH : 5 (num)
+20001(0x) PUSH : 1 (reg)
+    3     ADD 
+20002(0x) POP  : 1 (reg)
+   10     DUMP
+    0     HLT 
+   10     DUMP
+10001(0x) PUSH : 5 (num)
+70002(0x) POP  : RAM : 4 (num) & 1 (reg)
+   10     DUMP
+10001(0x) PUSH : 5 (num)
+   10     DUMP
+   14     RET 
+
+labels: 
+labels[0].name = end, labels[0].value = 14
+labels[1].name = 48, labels[1].value = 23
+labels[2].name = , labels[2].value = -1
+labels[3].name = , labels[3].value = -1
+labels[4].name = , labels[4].value = -1
+labels[5].name = , labels[5].value = -1
+labels[6].name = , labels[6].value = -1
+labels[7].name = , labels[7].value = -1
+labels[8].name = , labels[8].value = -1
+labels[9].name = , labels[9].value = -1
+
+Struct Asm : char_buffer[00FA2610], chars_count 349, code_buffer[00FA2CF8], lines_count 39
+
+
+DUMP
+
+Code: 
+12 131074 1 65537 1 131074 2 65540 -1 131073 1 65537 0 65544 -1 131073 1 65537 1 65552 -1 131073 1 65537 1 65664 -1 66048 -1 66048 21 131073 2 131073 1 6 131074 2 131073 1 65537 1 5 131074 1 14 65537 0 65540 -1 65537 1 65540 -1 131073 2 11 0 
+
+   12     IN  
+20002(0x) POP  : 1 (reg)
+10001(0x) PUSH : 1 (num)
+20002(0x) POP  : 2 (reg)
+10004(0x) JMP  : -1 (num)
+20001(0x) PUSH : 1 (reg)
+10001(0x) PUSH : 0 (num)
+10008(0x) JB   : -1 (num)
+20001(0x) PUSH : 1 (reg)
+10001(0x) PUSH : 1 (num)
+10010(0x) JBE  : -1 (num)
+20001(0x) PUSH : 1 (reg)
+10001(0x) PUSH : 1 (num)
+10080(0x) JE   : -1 (num)
+10200(0x) CALL : -1 (num)
+10200(0x) CALL : 21 (num)
+20001(0x) PUSH : 2 (reg)
+20001(0x) PUSH : 1 (reg)
+    6     MUL 
+20002(0x) POP  : 2 (reg)
+20001(0x) PUSH : 1 (reg)
+10001(0x) PUSH : 1 (num)
+    5     SUB 
+20002(0x) POP  : 1 (reg)
+   14     RET 
+10001(0x) PUSH : 0 (num)
+10004(0x) JMP  : -1 (num)
+10001(0x) PUSH : 1 (num)
+10004(0x) JMP  : -1 (num)
+20001(0x) PUSH : 2 (reg)
+   11     OUT 
+    0     HLT 
+
+labels: 
+labels[0].name = start, labels[0].value = 9
+labels[1].name = factorial, labels[1].value = 21
+labels[2].name = iter, labels[2].value = 31
+labels[3].name = null, labels[3].value = 46
+labels[4].name = one, labels[4].value = 50
+labels[5].name = end, labels[5].value = 54
+labels[6].name = , labels[6].value = -1
+labels[7].name = , labels[7].value = -1
+labels[8].name = , labels[8].value = -1
+labels[9].name = , labels[9].value = -1
+
+
+DUMP
+
+Code: 
+12 131074 1 65537 1 131074 2 65540 9 131073 1 65537 0 65544 46 131073 1 65537 1 65552 50 131073 1 65537 1 65664 54 66048 31 66048 21 131073 2 131073 1 6 131074 2 131073 1 65537 1 5 131074 1 14 65537 0 65540 54 65537 1 65540 54 131073 2 11 0 
+
+   12     IN  
+20002(0x) POP  : 1 (reg)
+10001(0x) PUSH : 1 (num)
+20002(0x) POP  : 2 (reg)
+10004(0x) JMP  : 9 (num)
+20001(0x) PUSH : 1 (reg)
+10001(0x) PUSH : 0 (num)
+10008(0x) JB   : 46 (num)
+20001(0x) PUSH : 1 (reg)
+10001(0x) PUSH : 1 (num)
+10010(0x) JBE  : 50 (num)
+20001(0x) PUSH : 1 (reg)
+10001(0x) PUSH : 1 (num)
+10080(0x) JE   : 54 (num)
+10200(0x) CALL : 31 (num)
+10200(0x) CALL : 21 (num)
+20001(0x) PUSH : 2 (reg)
+20001(0x) PUSH : 1 (reg)
+    6     MUL 
+20002(0x) POP  : 2 (reg)
+20001(0x) PUSH : 1 (reg)
+10001(0x) PUSH : 1 (num)
+    5     SUB 
+20002(0x) POP  : 1 (reg)
+   14     RET 
+10001(0x) PUSH : 0 (num)
+10004(0x) JMP  : 54 (num)
+10001(0x) PUSH : 1 (num)
+10004(0x) JMP  : 54 (num)
+20001(0x) PUSH : 2 (reg)
+   11     OUT 
+    0     HLT 
+
+labels: 
+labels[0].name = start, labels[0].value = 9
+labels[1].name = factorial, labels[1].value = 21
+labels[2].name = iter, labels[2].value = 31
+labels[3].name = null, labels[3].value = 46
+labels[4].name = one, labels[4].value = 50
+labels[5].name = end, labels[5].value = 54
+labels[6].name = , labels[6].value = -1
+labels[7].name = , labels[7].value = -1
+labels[8].name = , labels[8].value = -1
+labels[9].name = , labels[9].value = -1
+
+Struct Asm : char_buffer[00DB2490], chars_count 182, code_buffer[00DB28F0], lines_count 25
+
+
+DUMP
+
+Code: 
+10 65537 1 65537 2 3 10 131074 1 10 66048 -1 65540 -1 65537 5 131073 1 3 131074 1 10 0 10 65537 5 458754 4 1 10 65537 5 10 14 
+
+   10     DUMP
+10001(0x) PUSH : 1 (num)
+10001(0x) PUSH : 2 (num)
+    3     ADD 
+   10     DUMP
+20002(0x) POP  : 1 (reg)
+   10     DUMP
+10200(0x) CALL : -1 (num)
+10004(0x) JMP  : -1 (num)
+10001(0x) PUSH : 5 (num)
+20001(0x) PUSH : 1 (reg)
+    3     ADD 
+20002(0x) POP  : 1 (reg)
+   10     DUMP
+    0     HLT 
+   10     DUMP
+10001(0x) PUSH : 5 (num)
+70002(0x) POP  : RAM : 4 (num) & 1 (reg)
+   10     DUMP
+10001(0x) PUSH : 5 (num)
+   10     DUMP
+   14     RET 
+
+labels: 
+labels[0].name = end, labels[0].value = 14
+labels[1].name = 48, labels[1].value = 23
+labels[2].name = , labels[2].value = -1
+labels[3].name = , labels[3].value = -1
+labels[4].name = , labels[4].value = -1
+labels[5].name = , labels[5].value = -1
+labels[6].name = , labels[6].value = -1
+labels[7].name = , labels[7].value = -1
+labels[8].name = , labels[8].value = -1
+labels[9].name = , labels[9].value = -1
+
+
+DUMP
+
+Code: 
+10 65537 1 65537 2 3 10 131074 1 10 66048 23 65540 14 65537 5 131073 1 3 131074 1 10 0 10 65537 5 458754 4 1 10 65537 5 10 14 
+
+   10     DUMP
+10001(0x) PUSH : 1 (num)
+10001(0x) PUSH : 2 (num)
+    3     ADD 
+   10     DUMP
+20002(0x) POP  : 1 (reg)
+   10     DUMP
+10200(0x) CALL : 23 (num)
+10004(0x) JMP  : 14 (num)
+10001(0x) PUSH : 5 (num)
+20001(0x) PUSH : 1 (reg)
+    3     ADD 
+20002(0x) POP  : 1 (reg)
+   10     DUMP
+    0     HLT 
+   10     DUMP
+10001(0x) PUSH : 5 (num)
+70002(0x) POP  : RAM : 4 (num) & 1 (reg)
+   10     DUMP
+10001(0x) PUSH : 5 (num)
+   10     DUMP
+   14     RET 
+
+labels: 
+labels[0].name = end, labels[0].value = 14
+labels[1].name = 48, labels[1].value = 23
+labels[2].name = , labels[2].value = -1
+labels[3].name = , labels[3].value = -1
+labels[4].name = , labels[4].value = -1
+labels[5].name = , labels[5].value = -1
+labels[6].name = , labels[6].value = -1
+labels[7].name = , labels[7].value = -1
+labels[8].name = , labels[8].value = -1
+labels[9].name = , labels[9].value = -1

@@ -6,17 +6,21 @@ jmp :start
 
 start:
 push rax
+push 0
+jb :null
+push rax
 push 1
 jbe :one
 
-cycle:
-call :iter
-push rbx
+factorial:
+
 push rax
 push 1
 je :end
-pop rbx
-jmp :cycle
+
+call :iter
+
+call :factorial
 
 iter:
 push rbx
@@ -39,5 +43,6 @@ push 1
 jmp :end
 
 end:
+push rbx
 out
 hlt

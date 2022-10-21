@@ -29,6 +29,8 @@ int main()
 
     CpuFieldDtor(&field);
 
+    printf("SUCCESSFUL END\n");
+
     return SUCCESS;
 }
 

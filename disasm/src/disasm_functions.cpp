@@ -4,6 +4,7 @@
 int DisAsmCode(struct DisAsmField *field)
 {
     FILE *log_file = fopen(LOG_FILE_NAME, "w");
+    ERROR_CHECK(log_file == NULL, NULL_PTR_ERROR);
 
     int *code = field->code_buffer;
 
@@ -45,7 +46,8 @@ int DisAsmCode(struct DisAsmField *field)
 
 int PrintArg(struct DisAsmField *field, FILE *out_file)
 {
-    ERROR_CHECK(field == NULL, NULL_PTR_ERROR);
+    ERROR_CHECK(field    == NULL, NULL_PTR_ERROR);
+    ERROR_CHECK(out_file == NULL, NULL_PTR_ERROR);
 
     int cmd = field->code_buffer[field->pc];
 
