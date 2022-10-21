@@ -8,7 +8,7 @@
             }
 
 
-#define SKIP_DIGIT()                                                \
+#define SKIP_DIGIT()                                   \
             while(isdigit(**buf)) {(*buf)++;}
 
 
@@ -24,12 +24,20 @@ int AssemblyUserCode(struct AsmField *field)
 
     field->pc = 0;                  //needed for second assembly
 
-    while (strcmp(cmd, "hlt"))
+    while (true)
     {
         char *is_label = NULL;
 
-        while(isspace(*buf) || *buf == '\0') { buf++; }
+        while(isspace(*buf) || *buf == '\0') 
+        { 
+            buf++; 
+            if (*buf == EOF)
+                break;
+        }
 
+        if (*buf == EOF)
+            break;
+        
         sscanf(buf, "%s", cmd);
         buf += strlen(cmd) + 1;
 
@@ -44,7 +52,7 @@ int AssemblyUserCode(struct AsmField *field)
             ERROR_CHECK(process_label_err, PROCESS_LABEL_ERROR);
         }
 
-        #define DEF_CMD(name, num, arg, cpu_code, err_check)          \
+        #define DEF_CMD(name, num, arg, cpu_code)                     \
                 if (stricmp(cmd, #name) == 0)                         \
                 {                                                     \
                     if (arg)                                          \
@@ -99,7 +107,6 @@ int ProcessLabel(struct AsmField *field, char *cmd)
             }
         }
     }
-
 
     return SUCCESS;
 }
@@ -286,18 +293,20 @@ int FindLabelValue(struct AsmField *field, char *label_name, int *arg)
     ERROR_CHECK(label_name == NULL, PTR_NULL);
     ERROR_CHECK(arg        == NULL, PTR_NULL);
 
-    for (int i = 0; i <= (int)LABELS_AMOUNT; i++)
-    {
-        if (i == LABELS_AMOUNT)
-            *arg = LABEL_VALUE_POISON;
+    int label_num = 0;
 
-        if (strcmp(field->labels[i].name, label_name) == 0)
+    for (int i = 0; i < (int)LABELS_AMOUNT; i++, label_num = i)
+    {
+        if (strcmp(field->labels[label_num].name, label_name) == 0)
         {
-            *arg = field->labels[i].value;
+            *arg = field->labels[label_num].value;
 
             break;
         }
     }
+
+    if (label_num == LABELS_AMOUNT)
+            *arg = LABEL_VALUE_POISON;
 
     return SUCCESS;
 }
@@ -307,7 +316,16 @@ int AsmFieldCtor(struct AsmField *field)
 {
     ERROR_CHECK(field == NULL, PTR_NULL);
 
-    *field = {};
+    *field = (struct AsmField){};
+
+    field->char_buffer = NULL;
+    field->chars_count = 0;
+    field->code_buffer = NULL;
+    field->lines_count = 0;
+
+    field->pc = 0;
+
+    field->onegin_field = NULL;
 
     InitializeLabels(field);
 
@@ -317,14 +335,12 @@ int AsmFieldCtor(struct AsmField *field)
 int InitializeLabels(struct AsmField *field)
 {
     const char *label_poison_name = "";
-    int label_name_len = strlen(label_poison_name);
 
-    for (unsigned int i = 0; i < LABELS_AMOUNT; i++)
+    for (unsigned int label_num = 0; label_num < LABELS_AMOUNT; label_num++)
     {
-        for (int j = 0; j < label_name_len; j++)
-            field->labels[i].name[j] = label_poison_name[j];
+        strcpy(field->labels[label_num].name, label_poison_name);
 
-        field->labels[i].value = LABEL_VALUE_POISON;
+        field->labels[label_num].value = LABEL_VALUE_POISON;
     }
 
     return SUCCESS;
@@ -334,6 +350,8 @@ int AsmFieldDtor(struct AsmField *field)
 {
     ERROR_CHECK(field == NULL, PTR_NULL);
 
+    ERROR_CHECK(field->char_buffer == NULL, PTR_NULL);
+    ERROR_CHECK(field->code_buffer == NULL, PTR_NULL);
     free(field->char_buffer);
     free(field->code_buffer);
 

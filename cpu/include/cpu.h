@@ -74,7 +74,7 @@ const char * const SIGNATURE  = "DP";
 
 static const char * const LOG_FILE_NAME = "../io/cpu_out.txt";
 
-#define DEF_CMD(name, num, arg, code, err_check) \
+#define DEF_CMD(name, num, arg, code) \
             name##_CODE = num,
 enum Code
 {
@@ -111,13 +111,16 @@ int ReadCode(const char *code_file_name, struct CpuField *field);
 
 int ReadHeader(FILE *input_file, struct CpuField *field);
 
-int GetArg(struct CpuField *field, int *value);
 
+int ExecuteCode(struct CpuField *field);
 int GetPtrArg(struct CpuField *field, int **val);
 
 int DumpProcessor(struct CpuField *field);
 
-int ExecuteCode(struct CpuField *field);
-
+int DumpCommands(struct CpuField *field, FILE *dump_file);
+int DumpPc(struct CpuField *field, FILE *dump_file);
+int DumpStack(struct CpuField *field, FILE *dump_file);
+int DumpRegs(struct CpuField *field, FILE *dump_file);
+int DumpRam(struct CpuField *field, FILE *dump_file);
 
 #endif // CPU_H_INCLUDED

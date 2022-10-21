@@ -3,7 +3,7 @@
 
 #ifndef STACK_LIB_INCLUDED
 
-enum FunctionError
+enum StackError
 {
     SUCCESS                   = 0,
     PTR_NULL                  = 1,
@@ -14,8 +14,7 @@ enum FunctionError
     REALLOC_ERROR             = 6,
     HASH_CALC_ERROR           = 7,
     CTORING_ALIVE_STACK       = 8,
-
-    CLOSING_FILE_ERROR        = 10
+    CLOSING_FILE_ERROR        = 10,
 };
 
 #ifndef ONEGIN_LIB_INCLUDED
@@ -56,6 +55,7 @@ enum AsmError
                WRITE_HEADER_ERROR = 33,
                  READ_DIGIT_ERROR = 34,
             FIND_FREE_LABEL_ERROR = 35,
+                   ASM_DUMP_ERROR = 36,
 };
 
 enum CpuError
@@ -64,17 +64,25 @@ enum CpuError
           WRONG_VERSION_ERROR = 41,
               READ_CODE_ERROR = 42,
     INCORRECT_USER_CODE_ERROR = 43,
-           PERFORM_CODE_ERROR = 44,
+           EXECUTE_CODE_ERROR = 44,
      INCORRECT_RAM_CELL_ERROR = 45,
        DIVISION_BY_ZERO_ERROR = 46,
-                  EMPTY_ERROR = 47
+                  EMPTY_ERROR = 47,
+   INCORRECT_SQRT_VALUE_ERROR = 48,
+          DUMP_COMMANDS_ERROR = 49,
+                DUMP_PC_ERROR = 50,
+             DUMP_STACK_ERROR = 51,
+              DUMP_REGS_ERROR = 52,
+               DUMP_RAM_ERROR = 53,
+                 FWRITE_ERROR = 54,
+
 };
 
 enum DisAsmError
 {
-        DISASM_CODE_ERROR = 3,
-          WRONG_REG_ERROR = 4,
-           NULL_PTR_ERROR = 5,
+        DISASM_CODE_ERROR = 55,
+          WRONG_REG_ERROR = 56,
+           NULL_PTR_ERROR = 57,
 };
 
 

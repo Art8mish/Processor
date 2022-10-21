@@ -58,27 +58,6 @@
             } while(false)
 
 
-#define PRINT_ARG()                                                 \
-    if (*code & MEMORY_CODE)                                        \
-        printf("RAM : ");                                           \
-    if ((*code & REGISTER_CODE) && (*code & IMMEDIATE_CONST_CODE))  \
-    {                                                               \
-        printf("%d (num) & %d (reg)", *(code+1), *(code+2));        \
-        two_arg = true;                                             \
-    }                                                               \
-    else if (*code & REGISTER_CODE)                                 \
-        printf("%d (reg)", *(code + 1));                            \
-    else if (*code & IMMEDIATE_CONST_CODE)                          \
-        printf("%d (num)", *(code + 1));                            \
-    else                                                            \
-        printf("ERROR/label : %d", *(code+1));                      \
-    printf("\n");                                                   \
-                                                                    \
-    if (two_arg)                                                    \
-        code++;                                                     \
-    code++
-
-
 const size_t ASM_VERSION     = 1;
 
 const size_t MAX_WORD_LEN    = 34;
@@ -98,8 +77,10 @@ const char * const  INPUT_FILE_NAME = "../io/user_file.txt";
 
 const char * const OUTPUT_FILE_NAME = "../io/asm_output";
 
+const char * const ASM_DUMP_FILE = "../io/asm_dump.txt";
 
-#define DEF_CMD(name, num, arg, code, err_check) \
+
+#define DEF_CMD(name, num, arg, code) \
             name##_CODE = num,
 enum Code
 {
@@ -129,7 +110,7 @@ struct AsmField
     int    *code_buffer = NULL;
     size_t  lines_count = 0;
 
-    int     pc = 0;
+    int pc = 0;
 
     struct Label labels[LABELS_AMOUNT] = {{}};
     struct WorkingField *onegin_field  = NULL;

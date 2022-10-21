@@ -18,23 +18,22 @@ int main(int argc, char *argv[])
     ERROR_CHECK(read_err_check, READ_USER_FILE_ERROR);
 
     DumpField(&field);
-
+    
     //two assemblies
     for (int counter = 0; counter < 2; counter++)
     {
         int convert_err_check = AssemblyUserCode(&field);
         ERROR_CHECK(convert_err_check, ASSEMBLY_USER_CODE_ERROR);
 
-        DumpCode(&field);
+        int dump_err = DumpCode(&field);
+        ERROR_CHECK(dump_err, ASM_DUMP_ERROR);
     }
-
 
     WriteCode(&field, output_file_name);
 
-
     AsmFieldDtor(&field);
 
-    printf("\nSUCCEFUL END.");
+    printf("\nSUCCESSFUL END.\n");
 
     getchar();
 

@@ -38,39 +38,14 @@ int ReadUserFile(const char *user_file_name, struct AsmField *field)
 {
     ERROR_CHECK(user_file_name == NULL, PTR_NULL);
     ERROR_CHECK(         field == NULL, PTR_NULL);
-    /*
-    //count file_size
-    int countsize_err = CountSize(user_file_name, &(field->chars_count));
-    ERROR_CHECK(countsize_err, COUNTSIZE_ERROR);
-
-    //read file
-    FILE *input_file = fopen(user_file_name, "r");
-    READFILE_ERROR_CHECK(input_file == NULL, USER_FILE_OPENING_ERROR, input_file);
-    */
 
     field->onegin_field = CreateWorkingField(user_file_name);
     ERROR_CHECK(field->onegin_field == NULL, USER_FILE_OPENING_ERROR);
 
     field->char_buffer = field->onegin_field->chars_buffer;
-    /*
-    field->char_buffer = (char*) calloc(field->chars_count + 1, sizeof(char));
-    READFILE_ERROR_CHECK(field->char_buffer == NULL, CALLOC_ERROR, input_file);
+    field->chars_count = field->onegin_field->chars_amount;
+    *(field->char_buffer + field->chars_count)  = EOF;
 
-    fread(field->char_buffer, sizeof(char), field->chars_count, input_file);
-
-    int fread_error_check = ferror(input_file);
-    READFILE_ERROR_CHECK(fread_error_check, FREAD_ERROR, input_file);
-
-    fclose(input_file);
-     */
-     /*
-    //count lines in file
-    int countlines_err = CountLines(field, &(field->lines_count));
-
-    ERROR_CHECK(countlines_err, COUNTLINES_ERROR);
-
-    field->code_buffer = (int*) calloc(field->lines_count * MAX_LINE_SIZE, sizeof(int));
-    */
     field->lines_count = field->onegin_field->lines_amount;
     field->code_buffer = (int*) calloc(field->lines_count * MAX_LINE_SIZE, sizeof(int));
 
@@ -133,7 +108,8 @@ int WriteHeader(struct AsmField *field, FILE *output_file)
              header[1]   = ASM_VERSION;
              header[2]   = field->pc;
 
-    fwrite(header, HEADER_SIZE, sizeof(int), output_file);
+    int fwrite_elem = fwrite(header, sizeof(int), HEADER_SIZE, output_file);
+    ERROR_CHECK(fwrite_elem != HEADER_SIZE, FWRITE_ERROR);
 
     return SUCCESS;
 }
@@ -148,7 +124,8 @@ int WriteCode(struct AsmField *field, const char *output_file_name)
     int write_header_err = WriteHeader(field, output_file);
     ERROR_CHECK(write_header_err, WRITE_HEADER_ERROR);
 
-    fwrite(field->code_buffer, field->pc, sizeof(int), output_file);
+    int fwrite_elem = fwrite(field->code_buffer, sizeof(int), field->pc, output_file);
+    ERROR_CHECK(fwrite_elem != field->pc, FWRITE_ERROR);
 
     fclose(output_file);
 

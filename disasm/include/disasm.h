@@ -68,7 +68,7 @@ const size_t SIGNATURE_LENGTH = 3;
 static const char * const DISASM_SIGNATURE = "DP";
 
 
-#define DEF_CMD(name, num, arg, code, err_check)  \
+#define DEF_CMD(name, num, arg, code)  \
             name##_CODE = num,
 
 enum Code
