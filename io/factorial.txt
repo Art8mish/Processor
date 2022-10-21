@@ -13,10 +13,11 @@ push 1
 jbe :one
 
 factorial:
-
+push rbx
 push rax
 push 1
 je :end
+pop rbx
 
 call :iter
 
@@ -43,6 +44,5 @@ push 1
 jmp :end
 
 end:
-push rbx
 out
 hlt

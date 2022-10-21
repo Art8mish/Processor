@@ -110,25 +110,6 @@ int GetPtrArg(struct CpuField *field, int **val)
 
     else
         return SYNTAX_ERROR;
-
-    /*if (cmd & REGISTER_CODE && !(cmd & MEMORY_CODE))
-    {
-        ERROR_CHECK(field->code_buffer[field->pc] < 0 ||
-                    field->code_buffer[field->pc] >= (int)REGS_AMOUNT, SYNTAX_ERROR);
-
-        *val = &field->Regs[field->code_buffer[field->pc]];
-    }
-
-    if ((cmd & REGISTER_CODE) && (cmd & MEMORY_CODE))
-    {
-        field->pc++;
-
-        ERROR_CHECK(field->code_buffer[field->pc] < 0 || field->code_buffer[field->pc] > (int)REGS_AMOUNT, SYNTAX_ERROR);
-
-        **val += field->Regs[field->code_buffer[field->pc]];
-    }*/
-
-    //return SUCCESS;
 }
 
 /*
