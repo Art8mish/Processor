@@ -4,8 +4,10 @@
 
 int main()
 {
-    printf("start\n");
-    system("start assembler/assembler.exe");
-    system("start cpu/cpu.exe");
-    printf("finished\n");
+    system("assembler.exe ../io/krujochek.txt");
+    system("..\\cpu\\cpu.exe");
+    system("assembler.exe ../io/quadratic.txt");
+    system("..\\cpu\\cpu.exe");
+    system("assembler.exe ../io/factorial.txt");
+    system("..\\cpu\\cpu.exe");
 }

@@ -10,7 +10,7 @@ int DisAsmCode(struct DisAsmField *field)
 
     field->pc = 0;
 
-    while(code[field->pc] != HLT_CODE)
+    while(field->pc < field->op_count)
     {
         switch(code[field->pc] & 0xFFFF)
         {
@@ -35,8 +35,6 @@ int DisAsmCode(struct DisAsmField *field)
         fprintf(log_file, "\n");
         field->pc++;
     }
-
-    fprintf(log_file, "HLT\n");
 
     fclose(log_file);
 
