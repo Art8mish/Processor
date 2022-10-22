@@ -16,9 +16,7 @@
 #undef SOFT_ASSERT
 #endif
 
-#ifndef ASSERT_MODE
 #define ASSERT_MODE
-#endif
 
 #ifdef ASSERT_MODE
 
