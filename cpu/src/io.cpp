@@ -12,6 +12,9 @@ int ReadCode(const char *code_file_name, struct CpuField *field)
     int read_header_err = ReadHeader(input_file, field);
     FILE_ERROR_CHECK(read_header_err, READ_HEADER_ERROR, input_file);
 
+    field->code_buffer = (int*) calloc(field->op_count, sizeof(int));
+    ERROR_CHECK(field->code_buffer == NULL, CALLOC_ERROR);
+
     fread(field->code_buffer, sizeof(int), field->op_count, input_file);
     int fread_err_check = ferror(input_file);
     FILE_ERROR_CHECK(fread_err_check, FREAD_ERROR, input_file);
@@ -40,8 +43,6 @@ int ReadHeader(FILE *input_file, struct CpuField *field)
     ERROR_CHECK(version != CPU_VERSION, WRONG_VERSION_ERROR);
 
     field->op_count = header[2];
-    field->code_buffer = (int*) calloc(field->op_count, sizeof(int));
-    ERROR_CHECK(field->code_buffer == NULL, CALLOC_ERROR);
 
     return SUCCESS;
 }

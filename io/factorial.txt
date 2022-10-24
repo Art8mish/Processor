@@ -1,27 +1,38 @@
 in
 pop rax
+
 push 1
 pop rbx
-jmp :start
 
 start:
+
 push rax
 push 0
 jb :null
+
 push rax
 push 1
 jbe :one
+
+call :factorial
+
+end:
+out
+hlt
+
 
 factorial:
 push rbx
 push rax
 push 1
-je :end
+je :endfactorial
 pop rbx
 
 call :iter
-
 call :factorial
+
+endfactorial:
+ret
 
 iter:
 push rbx
@@ -43,6 +54,4 @@ one:
 push 1
 jmp :end
 
-end:
-out
-hlt
+

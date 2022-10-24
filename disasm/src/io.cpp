@@ -5,7 +5,7 @@ int ReadCode(const char *code_file_name, struct DisAsmField *field)
     ERROR_CHECK(code_file_name == NULL, PTR_NULL);
     ERROR_CHECK(         field == NULL, PTR_NULL);
 
-    FILE *input_file = fopen(code_file_name, "r");
+    FILE *input_file = fopen(code_file_name, "rb");
     FILE_ERROR_CHECK(input_file == NULL, OPENING_FILE_ERROR, input_file);
 
     int read_header_err = ReadHeader(input_file, field);

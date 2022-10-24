@@ -9,24 +9,24 @@ DEF_CMD(HLT, 0, 0,
     return 0;
 })
 
-DEF_CMD(PUSH, 1 << 0, 1,
+DEF_CMD(PUSH, (1 << 0), 1,
 {
     StackPush(&field->stk, *ptr_arg_val);
 })
 
-DEF_CMD(POP,  1 << 1, 1,
+DEF_CMD(POP,  (1 << 1), 1,
 {
     //txSleep(0.5);
     StackPop (&field->stk, &rhs);
     *ptr_arg_val = rhs;
 })
 
-DEF_CMD(JMP,  1 << 2, 1,
+DEF_CMD(JMP,  (1 << 2), 1,
 {
     field->pc = *ptr_arg_val - 1;
 })
 
-DEF_CMD(JB,   1 << 3, 1,
+DEF_CMD(JB,   (1 << 3), 1,
 {
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
@@ -34,7 +34,7 @@ DEF_CMD(JB,   1 << 3, 1,
         field->pc = *ptr_arg_val - 1;
 })
 
-DEF_CMD(JBE,  1 << 4, 1,
+DEF_CMD(JBE,  (1 << 4), 1,
 {
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
@@ -42,7 +42,7 @@ DEF_CMD(JBE,  1 << 4, 1,
         field->pc = *ptr_arg_val - 1;
 })
 
-DEF_CMD(JA,   1 << 5, 1,
+DEF_CMD(JA,   (1 << 5), 1,
 {
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
@@ -50,7 +50,7 @@ DEF_CMD(JA,   1 << 5, 1,
         field->pc = *ptr_arg_val - 1;
 })
 
-DEF_CMD(JAE,  1 << 6, 1,
+DEF_CMD(JAE,  (1 << 6), 1,
 {
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
@@ -58,7 +58,7 @@ DEF_CMD(JAE,  1 << 6, 1,
         field->pc = *ptr_arg_val - 1;
 })
 
-DEF_CMD(JE,   1 << 7, 1,
+DEF_CMD(JE,   (1 << 7), 1,
 {
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
@@ -66,7 +66,7 @@ DEF_CMD(JE,   1 << 7, 1,
         field->pc = *ptr_arg_val - 1;
 })
 
-DEF_CMD(JNE,  1 << 8, 1,
+DEF_CMD(JNE,  (1 << 8), 1,
 {
     StackPop (&field->stk, &rhs);
     StackPop (&field->stk, &lhs);
@@ -74,7 +74,7 @@ DEF_CMD(JNE,  1 << 8, 1,
         field->pc = *ptr_arg_val - 1;
 })
 
-DEF_CMD(CALL, 1 << 9, 1,
+DEF_CMD(CALL, (1 << 9), 1,
 {
     StackPush(&field->ret_adr, field->pc + 1);
     field->pc = *ptr_arg_val - 1;

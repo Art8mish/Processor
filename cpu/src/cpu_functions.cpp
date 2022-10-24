@@ -87,7 +87,6 @@ int GetPtrArg(struct CpuField *field, int **val)
     int cmd = field->code_buffer[field->pc];
     **val = 0;
 
-
     if (cmd & IMMEDIATE_CONST_CODE)
         **val += field->code_buffer[++field->pc];
 
@@ -109,13 +108,14 @@ int GetPtrArg(struct CpuField *field, int **val)
     {
         ERROR_CHECK(**val < 0 || **val >= (int)RAM_SIZE, INCORRECT_RAM_CELL_ERROR);
         *val = &field->Ram[**val];
+
+        return SUCCESS;
     }
 
-    else if (cmd & IMMEDIATE_CONST_CODE)
+    if (cmd & IMMEDIATE_CONST_CODE)
         return SUCCESS;
 
-    else
-        return SYNTAX_ERROR;
+    return SYNTAX_ERROR;
 }
 
 /*

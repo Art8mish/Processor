@@ -37,7 +37,7 @@ int AssemblyUserCode(struct AsmField *field)
         if (*buf == EOF)
             break;
         
-        sscanf(buf, "%s", cmd);
+        sscanf(buf, " %s", cmd);
         buf += strlen(cmd) + 1;
 
         //find label symb
@@ -203,11 +203,11 @@ int ReadDigit(struct AsmField *field, char **buf)
 
     field->code_buffer[field->pc] |= IMMEDIATE_CONST_CODE;
 
-    if (**buf == '-')
+    /*if (**buf == '-')
     {
         sign = -1;
         (*buf)++;
-    }
+    }*/
 
     sscanf(*buf, "%d", &arg);
 
@@ -215,6 +215,7 @@ int ReadDigit(struct AsmField *field, char **buf)
 
     field->code_buffer[++field->pc] = arg;
 
+    (*buf)++;
     SKIP_DIGIT();
 
     return SUCCESS;

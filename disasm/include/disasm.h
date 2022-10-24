@@ -58,8 +58,6 @@ const int DISASM_VERSION = 1;
 static const char *CODE_INPUT_FILE = "../io/asm_output";
 static const char *LOG_FILE_NAME   = "../io/disasm_out.txt";
 
-
-
 const size_t HEADER_SIZE      = 3;
 
 const size_t SIGNATURE_LENGTH = 3;
